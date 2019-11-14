@@ -9,5 +9,10 @@
  * @author Abdullah Hadi
  */
 class Donasi {
+    private Donatur donatur;
+    private double nominal;
     
+    public void addDonatur(Donatur donatur){
+        this.donatur = donatur;
+    }
 }
