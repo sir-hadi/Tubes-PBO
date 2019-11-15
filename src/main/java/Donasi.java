@@ -15,4 +15,17 @@ class Donasi {
     public void addDonatur(Donatur donatur){
         this.donatur = donatur;
     }
+
+    public void setNominal(double nominal) {
+        this.nominal = nominal;
+    }
+    
+    public Donatur getDonatur() {
+        return donatur;
+    }
+
+    public double getNominal() {
+        return nominal;
+    }
+   
 }

@@ -9,25 +9,25 @@
  * @author Abdullah Hadi
  */
 public class UserInfo {
-    private String usernama;
+    private String username;
     private String password;
-    private int id=0;
+    private static int id=1;
     private String sid;
 
-    public UserInfo(String usernama, String password, String sid) {
-        this.usernama = usernama;
+    public UserInfo(String username, String password, String sid) {
+        this.username = username;
         this.password = password;
         this.sid = sid;
         this.sid += "-"+id;
         id++;
     }
 
-    public String getUsernama() {
-        return usernama;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsernama(String usernama) {
-        this.usernama = usernama;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
