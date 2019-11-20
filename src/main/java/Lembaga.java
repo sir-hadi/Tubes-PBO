@@ -10,4 +10,8 @@
  */
 public class Lembaga extends Penerima{
     
+    public Lembaga(String nama, String alamat, String noTelp) {
+        super(nama, alamat, noTelp);
+    }
+    
 }

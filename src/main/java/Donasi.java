@@ -11,6 +11,11 @@
 class Donasi {
     private Donatur donatur;
     private double nominal;
+
+    public Donasi(Donatur donatur, double nominal) {
+        this.donatur = donatur;
+        this.nominal = nominal;
+    }
     
     public void addDonatur(Donatur donatur){
         this.donatur = donatur;

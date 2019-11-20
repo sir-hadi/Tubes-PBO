@@ -10,4 +10,8 @@
  */
 public class Personal extends Penerima{
     
+    public Personal(String nama, String alamat, String noTelp) {
+        super(nama, alamat, noTelp);
+    }
+    
 }
