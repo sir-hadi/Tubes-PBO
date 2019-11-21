@@ -8,7 +8,7 @@
  *
  * @author Abdullah Hadi
  */
-class Donasi {
+public class Donasi {
     private Donatur donatur;
     private double nominal;
 

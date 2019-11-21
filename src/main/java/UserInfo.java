@@ -20,8 +20,7 @@ public class UserInfo {
         this.password = password;
         this.email = email;
         this.sid = sid;
-        this.sid += "-"+id;
-        id++;
+        this.sid += "-"+id++;
     }
 
     public String getUsername() {

@@ -1,5 +1,7 @@
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,6 +19,9 @@ public class EventGalangDana {
     private Date tglMulai, tglSelesai;
     private Double targetDana;
     private String description;
+    private boolean verified = false;
+    private static int id=1;
+    private String sid;
 
     public EventGalangDana(Penerima penerima , Date tglMulai, Date tglSelesai, Double targetDana, String description) {
         this.penerima = penerima;
@@ -25,6 +30,7 @@ public class EventGalangDana {
         this.targetDana = targetDana;
         this.description = description;
         listDonasi = new ArrayList<>();
+        this.sid = "EG"+id++;
     }
     
     public void createDonasi(Donatur donatur, double nominal) {
@@ -46,6 +52,62 @@ public class EventGalangDana {
             d = d + donasi.getNominal();
         }
         return d;
+    }
+
+    public Penerima getPenerima() {
+        return penerima;
+    }
+
+    public void setPenerima(Penerima penerima) {
+        this.penerima = penerima;
+    }
+
+    public Date getTglMulai() {
+        return tglMulai;
+    }
+
+    public void setTglMulai(Date tglMulai) {
+        this.tglMulai = tglMulai;
+    }
+
+    public Date getTglSelesai() {
+        return tglSelesai;
+    }
+
+    public void setTglSelesai(Date tglSelesai) {
+        this.tglSelesai = tglSelesai;
+    }
+
+    public Double getTargetDana() {
+        return targetDana;
+    }
+
+    public void setTargetDana(Double targetDana) {
+        this.targetDana = targetDana;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isVerified() {
+        return verified;
+    }
+
+    public void setVerified(boolean verified) {
+        this.verified = verified;
+    }
+
+    public Donasi getDonasi(int x) {
+        return listDonasi.get(x);
+    }
+
+    public String getSid() {
+        return sid;
     }
     
 }

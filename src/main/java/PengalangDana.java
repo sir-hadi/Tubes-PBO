@@ -24,4 +24,15 @@ public class PengalangDana extends UserInfo{
         listEvent.add(e);
     }
     
+    public EventGalangDana getEvent (String id) {
+        int i = 0;
+        while(i < listEvent.size() && !listEvent.get(i).getSid().equals(id)){
+            i++;
+        }
+        if (i >= listEvent.size()) {
+            return null;
+        }
+        return listEvent.get(i);
+    }
+    
 }
