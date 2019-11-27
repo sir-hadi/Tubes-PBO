@@ -14,13 +14,13 @@ import java.util.*;
 public class PengalangDana extends UserInfo{
     private List<EventGalangDana> listEvent; 
 
-    public PengalangDana(String usernama, String password, String email, String sid) {
-        super(usernama, password, email, sid);
+    public PengalangDana(String usernama, String password, String nama, String noTelp, String email, String sid) {
+        super(usernama, password, nama, noTelp, email, sid);
         listEvent = new ArrayList<>();
     }
     
-    public void createEvent(Penerima penerima , Date tglMulai, Date tglSelesai, Double targetDana, String description) {
-        EventGalangDana e = new EventGalangDana(penerima, tglMulai, tglSelesai, targetDana, description);
+    public void createEvent(Penerima penerima, String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description) {
+        EventGalangDana e = new EventGalangDana(penerima, nama, tglMulai, tglSelesai, targetDana, description);
         listEvent.add(e);
     }
     

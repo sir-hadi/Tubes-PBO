@@ -10,8 +10,8 @@
  */
 public class Donatur extends UserInfo{
    
-    public Donatur( String usernama, String password, String email, String sid) {
-        super(usernama, password, email, sid);
+    public Donatur( String usernama, String password, String nama, String noTelp, String email, String sid) {
+        super(usernama, password, nama, noTelp, email, sid);
     }
    
     

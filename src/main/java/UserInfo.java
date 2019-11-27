@@ -11,13 +11,17 @@
 public class UserInfo {
     private String username;
     private String password;
+    private String nama;
+    private String noTelp;
     private String email;
     private static int id=1;
     private String sid;
 
-    public UserInfo(String username, String password, String email ,String sid) {
+    public UserInfo(String username, String password, String nama, String noTelp, String email ,String sid) {
         this.username = username;
         this.password = password;
+        this.nama = nama;
+        this.noTelp = noTelp;
         this.email = email;
         this.sid = sid;
         this.sid += "-"+id++;

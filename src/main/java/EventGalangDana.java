@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class EventGalangDana {
     private Penerima penerima;
+    private String nama;
     private List<Donasi> listDonasi;
     private Date tglMulai, tglSelesai;
     private Double targetDana;
@@ -23,8 +24,9 @@ public class EventGalangDana {
     private static int id=1;
     private String sid;
 
-    public EventGalangDana(Penerima penerima , Date tglMulai, Date tglSelesai, Double targetDana, String description) {
+    public EventGalangDana(Penerima penerima , String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description) {
         this.penerima = penerima;
+        this.nama = nama;
         this.tglMulai = tglMulai;
         this.tglSelesai = tglSelesai;
         this.targetDana = targetDana;

@@ -24,10 +24,10 @@ public class Application {
         
         
     }
-{    
+   
     
-    public void inputDonatur (String usernama, String password, String email, String sid) {
-        Donatur d = new Donatur(usernama, password, email, sid);
+    public void inputDonatur (String usernama, String password, String nama, String  noTelp, String email, String sid) {
+        Donatur d = new Donatur(usernama, password, nama, noTelp, email, sid);
         daftarDonatur.add(d);
     }
     

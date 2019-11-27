@@ -27,12 +27,14 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         AccountType = new javax.swing.ButtonGroup();
+        PenerimaType = new javax.swing.ButtonGroup();
+        PenerimaTypeUpdate = new javax.swing.ButtonGroup();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         pLogin = new javax.swing.JPanel();
         bLogin = new javax.swing.JButton();
         tfUsername = new javax.swing.JTextField();
-        tfPassword = new javax.swing.JTextField();
         bRegister = new javax.swing.JButton();
+        pfPassword = new javax.swing.JPasswordField();
         pRegistrasi = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -49,13 +51,16 @@ public class GUI extends javax.swing.JFrame {
         tfRegisPasswordConfirmation = new javax.swing.JTextField();
         rbRegisDonatur = new javax.swing.JRadioButton();
         rbRegisPengalangDana = new javax.swing.JRadioButton();
-        jPanel1 = new javax.swing.JPanel();
+        tfRegisName1 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        pMain = new javax.swing.JPanel();
         pUserinfo = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         bLogOut = new javax.swing.JToggleButton();
-        bEditProfile = new javax.swing.JToggleButton();
-        pMain = new javax.swing.JPanel();
+        btnEditProfile = new javax.swing.JToggleButton();
+        pMainGalangDana = new javax.swing.JPanel();
         pMainPengalangDana = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -64,7 +69,55 @@ public class GUI extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         bUpdateEvent = new javax.swing.JButton();
         bDeleteEvent = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        pEventCreate = new javax.swing.JPanel();
+        tfNamaPenerimaCreate = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        tfAlamatPenerimaCreate = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        tfNamaEventCreate = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        tfTanggalMulaiCreate = new javax.swing.JTextField();
+        tfTanggalSelesaiCreate = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        tfTargetDanaCreate = new javax.swing.JTextField();
+        tfDescriptionCreate = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        rbPersonal = new javax.swing.JRadioButton();
+        rbLembaga = new javax.swing.JRadioButton();
+        jLabel20 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        pEventUpdate = new javax.swing.JPanel();
+        tfNamaPenerimaUpdate = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        tfAlamatPenerimaUpdate = new javax.swing.JTextField();
+        tfTelpPenerimaUpdate = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        tfNamaEventUpdate = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        tfTanggalMulaiUpdate = new javax.swing.JTextField();
+        tfTanggalSelesaiUpdate = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        tfTargetDanaUpdate = new javax.swing.JTextField();
+        tfDescriptionUpdate = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        rbPersonalUpdate = new javax.swing.JRadioButton();
+        rbLembagaUpdate = new javax.swing.JRadioButton();
+        jLabel31 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,20 +142,19 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(174, 174, 174)
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(tfUsername)
-                    .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                        .addComponent(bLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(bLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(156, 156, 156))
         );
         pLoginLayout.setVerticalGroup(
             pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pLoginLayout.createSequentialGroup()
-                .addContainerGap(189, Short.MAX_VALUE)
+                .addContainerGap(234, Short.MAX_VALUE)
                 .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bRegister)
@@ -111,9 +163,9 @@ public class GUI extends javax.swing.JFrame {
 
         jLayeredPane1.add(pLogin, "card2");
 
-        jLabel1.setText("Name");
+        jLabel1.setText("Username");
 
-        jLabel2.setText("Username");
+        jLabel2.setText("Nama");
 
         jLabel3.setText("Email");
 
@@ -121,7 +173,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel5.setText("Passwor  Confirmation");
 
-        jLabel6.setText("Accont Type");
+        jLabel6.setText("Account Type");
 
         jLabel7.setText("---------");
 
@@ -143,6 +195,10 @@ public class GUI extends javax.swing.JFrame {
         AccountType.add(rbRegisPengalangDana);
         rbRegisPengalangDana.setText("Pengalang Dana");
 
+        jLabel32.setText("Nama");
+
+        jButton5.setText("Cancel");
+
         javax.swing.GroupLayout pRegistrasiLayout = new javax.swing.GroupLayout(pRegistrasi);
         pRegistrasi.setLayout(pRegistrasiLayout);
         pRegistrasiLayout.setHorizontalGroup(
@@ -157,7 +213,8 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tfRegisName)
@@ -168,14 +225,16 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(pRegistrasiLayout.createSequentialGroup()
                                 .addComponent(rbRegisDonatur, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbRegisPengalangDana))))
+                                .addComponent(rbRegisPengalangDana))
+                            .addComponent(tfRegisName1)))
                     .addGroup(pRegistrasiLayout.createSequentialGroup()
-                        .addGap(231, 231, 231)
+                        .addGap(186, 186, 186)
+                        .addComponent(bNewRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pRegistrasiLayout.createSequentialGroup()
+                        .addGap(226, 226, 226)
                         .addComponent(jLabel7))
-                    .addGroup(pRegistrasiLayout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(bNewRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(113, Short.MAX_VALUE))
+                    .addComponent(jButton5))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         pRegistrasiLayout.setVerticalGroup(
             pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,12 +242,16 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tfRegisName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
                     .addComponent(tfRegisUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfRegisName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
+                .addGap(18, 18, 18)
+                .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfRegisName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(22, 22, 22)
                 .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tfRegisEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,16 +264,17 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(tfRegisPasswordConfirmation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbRegisDonatur)
-                        .addComponent(rbRegisPengalangDana)))
-                .addGap(34, 34, 34)
+                    .addComponent(rbRegisDonatur)
+                    .addComponent(rbRegisPengalangDana))
+                .addGap(52, 52, 52)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bNewRegister)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addContainerGap())
         );
 
         jLayeredPane1.add(pRegistrasi, "card3");
@@ -228,7 +292,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        bEditProfile.setText("Edit Profile");
+        btnEditProfile.setText("Edit Profile");
 
         javax.swing.GroupLayout pUserinfoLayout = new javax.swing.GroupLayout(pUserinfo);
         pUserinfo.setLayout(pUserinfoLayout);
@@ -239,8 +303,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
-                .addComponent(bEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -251,7 +315,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pUserinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(pUserinfoLayout.createSequentialGroup()
-                        .addComponent(bEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(btnEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(1, 1, 1))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pUserinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
@@ -260,7 +324,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pMain.setLayout(new java.awt.CardLayout());
+        pMainGalangDana.setLayout(new java.awt.CardLayout());
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -307,7 +371,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(pMainPengalangDanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pMainPengalangDanaLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addGroup(pMainPengalangDanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bUpdateEvent)
                             .addComponent(bDeleteEvent)))
@@ -317,42 +381,331 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pMain.add(pMainPengalangDana, "card2");
+        pMainGalangDana.add(pMainPengalangDana, "card2");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+        jLabel10.setText("Data Penerima :");
+
+        jLabel11.setText("Nama");
+
+        jLabel12.setText("No. Telp");
+
+        jLabel13.setText("Alamat");
+
+        jLabel14.setText("Data Event :");
+
+        jLabel15.setText("Nama Event");
+
+        jLabel16.setText("Tanggal");
+
+        tfTanggalMulaiCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTanggalMulaiCreateActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("-");
+
+        jLabel18.setText("Target Dana");
+
+        jLabel19.setText("Deskripsi");
+
+        PenerimaType.add(rbPersonal);
+        rbPersonal.setText("Personal");
+
+        PenerimaType.add(rbLembaga);
+        rbLembaga.setText("Lembaga");
+
+        jLabel20.setText("Tipe");
+
+        jButton1.setText("Create");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancel");
+
+        javax.swing.GroupLayout pEventCreateLayout = new javax.swing.GroupLayout(pEventCreate);
+        pEventCreate.setLayout(pEventCreateLayout);
+        pEventCreateLayout.setHorizontalGroup(
+            pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pEventCreateLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel12))
+                .addGap(33, 33, 33)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pEventCreateLayout.createSequentialGroup()
+                        .addComponent(tfNamaPenerimaCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel20))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfAlamatPenerimaCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbLembaga)
+                    .addComponent(rbPersonal))
+                .addGap(184, 184, 184))
+            .addGroup(pEventCreateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addGroup(pEventCreateLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19))
+                        .addGap(18, 18, 18)
+                        .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfDescriptionCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfTargetDanaCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNamaEventCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pEventCreateLayout.createSequentialGroup()
+                                .addComponent(tfTanggalMulaiCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfTanggalSelesaiCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel10))
+                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEventCreateLayout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+        pEventCreateLayout.setVerticalGroup(
+            pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pEventCreateLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNamaPenerimaCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(rbPersonal)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(tfAlamatPenerimaCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbLembaga))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(tfNamaEventCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(tfTanggalMulaiCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfTanggalSelesaiCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfTargetDanaCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfDescriptionCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(pEventCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)))
         );
 
-        pMain.add(jPanel2, "card3");
+        pMainGalangDana.add(pEventCreate, "card3");
+
+        jLabel21.setText("Data Penerima :");
+
+        jLabel22.setText("Nama");
+
+        jLabel23.setText("No. Telp");
+
+        jLabel24.setText("Alamat");
+
+        jLabel25.setText("Data Event :");
+
+        jLabel26.setText("Nama Event");
+
+        jLabel27.setText("Tanggal");
+
+        tfTanggalMulaiUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTanggalMulaiUpdateActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("-");
+
+        jLabel29.setText("Target Dana");
+
+        jLabel30.setText("Deskripsi");
+
+        PenerimaTypeUpdate.add(rbPersonalUpdate);
+        rbPersonalUpdate.setSelected(true);
+        rbPersonalUpdate.setText("Personal");
+
+        PenerimaTypeUpdate.add(rbLembagaUpdate);
+        rbLembagaUpdate.setText("Lembaga");
+
+        jLabel31.setText("Tipe");
+
+        jButton3.setText("Update");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Cancel");
+
+        javax.swing.GroupLayout pEventUpdateLayout = new javax.swing.GroupLayout(pEventUpdate);
+        pEventUpdate.setLayout(pEventUpdateLayout);
+        pEventUpdateLayout.setHorizontalGroup(
+            pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pEventUpdateLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel23))
+                .addGap(33, 33, 33)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pEventUpdateLayout.createSequentialGroup()
+                        .addComponent(tfNamaPenerimaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel31))
+                    .addComponent(tfTelpPenerimaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfAlamatPenerimaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbLembagaUpdate)
+                    .addComponent(rbPersonalUpdate))
+                .addGap(184, 184, 184))
+            .addGroup(pEventUpdateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addGroup(pEventUpdateLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel30))
+                        .addGap(18, 18, 18)
+                        .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfDescriptionUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfTargetDanaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNamaEventUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pEventUpdateLayout.createSequentialGroup()
+                                .addComponent(tfTanggalMulaiUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfTanggalSelesaiUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel21))
+                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEventUpdateLayout.createSequentialGroup()
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
+        );
+        pEventUpdateLayout.setVerticalGroup(
+            pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pEventUpdateLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNamaPenerimaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22)
+                    .addComponent(rbPersonalUpdate)
+                    .addComponent(jLabel31))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(tfAlamatPenerimaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbLembagaUpdate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(tfTelpPenerimaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(tfNamaEventUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(tfTanggalMulaiUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfTanggalSelesaiUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfTargetDanaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfDescriptionUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(pEventUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)))
+        );
+
+        pMainGalangDana.add(pEventUpdate, "card4");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pUserinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGap(0, 553, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGap(0, 391, Short.MAX_VALUE)
+        );
+
+        pMainGalangDana.add(jPanel1, "card5");
+
+        javax.swing.GroupLayout pMainLayout = new javax.swing.GroupLayout(pMain);
+        pMain.setLayout(pMainLayout);
+        pMainLayout.setHorizontalGroup(
+            pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pMainLayout.createSequentialGroup()
+                .addGroup(pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pUserinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pMainGalangDana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pMainLayout.setVerticalGroup(
+            pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pUserinfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pMainGalangDana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jLayeredPane1.add(jPanel1, "card4");
+        jLayeredPane1.add(pMain, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -388,6 +741,22 @@ public class GUI extends javax.swing.JFrame {
     private void bLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogOutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bLogOutActionPerformed
+
+    private void tfTanggalMulaiCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTanggalMulaiCreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTanggalMulaiCreateActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfTanggalMulaiUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTanggalMulaiUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTanggalMulaiUpdateActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -426,18 +795,48 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup AccountType;
+    private javax.swing.ButtonGroup PenerimaType;
+    private javax.swing.ButtonGroup PenerimaTypeUpdate;
     private javax.swing.JTextField RegisPassword;
     private javax.swing.JButton bAddEvent;
     private javax.swing.JButton bDeleteEvent;
-    private javax.swing.JToggleButton bEditProfile;
     private javax.swing.JToggleButton bLogOut;
     private javax.swing.JButton bLogin;
     private javax.swing.JButton bNewRegister;
     private javax.swing.JButton bRegister;
     private javax.swing.JButton bUpdateEvent;
+    private javax.swing.JToggleButton btnEditProfile;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -447,22 +846,45 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel pEventCreate;
+    private javax.swing.JPanel pEventUpdate;
     private javax.swing.JPanel pLogin;
     private javax.swing.JPanel pMain;
+    private javax.swing.JPanel pMainGalangDana;
     private javax.swing.JPanel pMainPengalangDana;
     private javax.swing.JPanel pRegistrasi;
     private javax.swing.JPanel pUserinfo;
+    private javax.swing.JPasswordField pfPassword;
+    private javax.swing.JRadioButton rbLembaga;
+    private javax.swing.JRadioButton rbLembagaUpdate;
+    private javax.swing.JRadioButton rbPersonal;
+    private javax.swing.JRadioButton rbPersonalUpdate;
     private javax.swing.JRadioButton rbRegisDonatur;
     private javax.swing.JRadioButton rbRegisPengalangDana;
-    private javax.swing.JTextField tfPassword;
+    private javax.swing.JTextField tfAlamatPenerimaCreate;
+    private javax.swing.JTextField tfAlamatPenerimaUpdate;
+    private javax.swing.JTextField tfDescriptionCreate;
+    private javax.swing.JTextField tfDescriptionUpdate;
+    private javax.swing.JTextField tfNamaEventCreate;
+    private javax.swing.JTextField tfNamaEventUpdate;
+    private javax.swing.JTextField tfNamaPenerimaCreate;
+    private javax.swing.JTextField tfNamaPenerimaUpdate;
     private javax.swing.JTextField tfRegisEmail;
     private javax.swing.JTextField tfRegisName;
+    private javax.swing.JTextField tfRegisName1;
     private javax.swing.JTextField tfRegisPasswordConfirmation;
     private javax.swing.JTextField tfRegisUsername;
+    private javax.swing.JTextField tfTanggalMulaiCreate;
+    private javax.swing.JTextField tfTanggalMulaiUpdate;
+    private javax.swing.JTextField tfTanggalSelesaiCreate;
+    private javax.swing.JTextField tfTanggalSelesaiUpdate;
+    private javax.swing.JTextField tfTargetDanaCreate;
+    private javax.swing.JTextField tfTargetDanaUpdate;
+    private javax.swing.JTextField tfTelpPenerimaUpdate;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 }
