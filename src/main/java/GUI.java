@@ -1,4 +1,9 @@
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import javax.swing.JButton;
+import javax.swing.JList;
 import javax.swing.JPanel;
 
 /*
@@ -6,7 +11,6 @@ import javax.swing.JPanel;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Abdullah Hadi
@@ -42,23 +46,23 @@ public class GUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        bNewRegister = new javax.swing.JButton();
+        btnNewRegister = new javax.swing.JButton();
+        btnCancelRegis = new javax.swing.JButton();
         tfRegisName = new javax.swing.JTextField();
         tfRegisUsername = new javax.swing.JTextField();
         tfRegisEmail = new javax.swing.JTextField();
-        RegisPassword = new javax.swing.JTextField();
+        tfRegisPassword = new javax.swing.JTextField();
         tfRegisPasswordConfirmation = new javax.swing.JTextField();
         rbRegisDonatur = new javax.swing.JRadioButton();
         rbRegisPengalangDana = new javax.swing.JRadioButton();
         tfRegisTelp = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         pMain = new javax.swing.JPanel();
         pUserinfo = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        bLogOut = new javax.swing.JToggleButton();
-        btnEditProfile = new javax.swing.JToggleButton();
+        btnEditProfile = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         pUserMain = new javax.swing.JPanel();
         pMainGalangDana = new javax.swing.JPanel();
         pMainPengalangDana = new javax.swing.JPanel();
@@ -67,8 +71,8 @@ public class GUI extends javax.swing.JFrame {
         bAddEvent = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         taDeskripsiPD = new javax.swing.JTextArea();
-        bUpdateEvent = new javax.swing.JButton();
-        bDeleteEvent = new javax.swing.JButton();
+        btnUpdateEvent = new javax.swing.JButton();
+        btnDeleteEvent = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         pEventCreate = new javax.swing.JPanel();
@@ -129,17 +133,17 @@ public class GUI extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         pPilihanDonatur = new javax.swing.JPanel();
         pBelumDonasi = new javax.swing.JPanel();
-        bMauDonasi = new javax.swing.JButton();
+        btnMauDonasi = new javax.swing.JButton();
         pDonasiPertama = new javax.swing.JPanel();
         tfNominalPertama = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        bKirimDonasi = new javax.swing.JButton();
-        bKembali = new javax.swing.JButton();
+        btnKirimDonasi = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
         pIdlePilihanDonasi = new javax.swing.JPanel();
         tfIdleNominal = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        bUpdateDonasi = new javax.swing.JButton();
-        bBatalDonasi = new javax.swing.JButton();
+        btnUpdateDonasi = new javax.swing.JButton();
+        btnBatalDonasi = new javax.swing.JButton();
         pEditProfile = new javax.swing.JPanel();
         pEditUser = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
@@ -150,7 +154,7 @@ public class GUI extends javax.swing.JFrame {
         tfNewEmail = new javax.swing.JTextField();
         pAdmin = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
-        bLogOutAdmin = new javax.swing.JButton();
+        btnLogOutAdmin = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         pVerfikasi = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -176,13 +180,12 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane12 = new javax.swing.JScrollPane();
         taDeskripsiPdInAdmin = new javax.swing.JTextArea();
         pLogin = new javax.swing.JPanel();
-        bLogin = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         tfUsername = new javax.swing.JTextField();
-        bRegister = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
         pfPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(595, 534));
 
         jLayeredPane1.setLayout(new java.awt.CardLayout());
 
@@ -200,12 +203,14 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel7.setText("---------");
 
-        bNewRegister.setText("Register");
-        bNewRegister.addActionListener(new java.awt.event.ActionListener() {
+        btnNewRegister.setText("Register");
+        btnNewRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bNewRegisterActionPerformed(evt);
+                btnNewRegisterActionPerformed(evt);
             }
         });
+
+        btnCancelRegis.setText("Cancel");
 
         AccountType.add(rbRegisDonatur);
         rbRegisDonatur.setText("Donatur");
@@ -219,8 +224,6 @@ public class GUI extends javax.swing.JFrame {
         rbRegisPengalangDana.setText("Pengalang Dana");
 
         jLabel32.setText("Nama");
-
-        jButton5.setText("Cancel");
 
         javax.swing.GroupLayout pRegistrasiLayout = new javax.swing.GroupLayout(pRegistrasi);
         pRegistrasi.setLayout(pRegistrasiLayout);
@@ -243,7 +246,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(tfRegisName)
                             .addComponent(tfRegisUsername)
                             .addComponent(tfRegisEmail)
-                            .addComponent(RegisPassword)
+                            .addComponent(tfRegisPassword)
                             .addComponent(tfRegisPasswordConfirmation)
                             .addGroup(pRegistrasiLayout.createSequentialGroup()
                                 .addComponent(rbRegisDonatur, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,9 +255,9 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(tfRegisTelp)))
                     .addGroup(pRegistrasiLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton5)
+                        .addComponent(btnCancelRegis)
                         .addGap(109, 109, 109)
-                        .addComponent(bNewRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnNewRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pRegistrasiLayout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(jLabel7)))
@@ -282,7 +285,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(RegisPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfRegisPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -296,12 +299,14 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pRegistrasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bNewRegister)
-                    .addComponent(jButton5))
+                    .addComponent(btnNewRegister)
+                    .addComponent(btnCancelRegis))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(pRegistrasi, "card3");
+
+        pMain.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         pUserinfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -309,14 +314,9 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel9.setText("Username");
 
-        bLogOut.setText("LogOut");
-        bLogOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLogOutActionPerformed(evt);
-            }
-        });
-
         btnEditProfile.setText("Edit Profile");
+
+        btnLogout.setText("Logout");
 
         javax.swing.GroupLayout pUserinfoLayout = new javax.swing.GroupLayout(pUserinfo);
         pUserinfo.setLayout(pUserinfoLayout);
@@ -327,30 +327,32 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
+                .addComponent(btnEditProfile)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLogout)
+                .addGap(25, 25, 25))
         );
         pUserinfoLayout.setVerticalGroup(
             pUserinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pUserinfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pUserinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(pUserinfoLayout.createSequentialGroup()
-                        .addComponent(btnEditProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(1, 1, 1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pUserinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel9)
-                        .addComponent(bLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pUserinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(btnEditProfile)
+                    .addComponent(btnLogout))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnLogout.getAccessibleContext().setAccessibleName("Logout");
+
+        pUserMain.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pUserMain.setLayout(new java.awt.CardLayout());
 
         pMainGalangDana.setLayout(new java.awt.CardLayout());
+
+        pMainPengalangDana.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         listEventPD.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -365,9 +367,9 @@ public class GUI extends javax.swing.JFrame {
         taDeskripsiPD.setRows(5);
         jScrollPane2.setViewportView(taDeskripsiPD);
 
-        bUpdateEvent.setText("Update");
+        btnUpdateEvent.setText("Update");
 
-        bDeleteEvent.setText("Delete");
+        btnDeleteEvent.setText("Delete");
 
         jLabel37.setText("List Event");
 
@@ -387,9 +389,9 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(pMainPengalangDanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pMainPengalangDanaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bUpdateEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUpdateEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bDeleteEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDeleteEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(pMainPengalangDanaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -413,8 +415,8 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pMainPengalangDanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bUpdateEvent)
-                            .addComponent(bDeleteEvent)))
+                            .addComponent(btnUpdateEvent)
+                            .addComponent(btnDeleteEvent)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bAddEvent)
@@ -727,11 +729,6 @@ public class GUI extends javax.swing.JFrame {
 
         pUserMain.add(pMainGalangDana, "card3");
 
-        listEventDNT.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane3.setViewportView(listEventDNT);
 
         jLabel33.setText("List Event Galang Dana");
@@ -744,10 +741,10 @@ public class GUI extends javax.swing.JFrame {
 
         pPilihanDonatur.setLayout(new java.awt.CardLayout());
 
-        bMauDonasi.setText("Donasi");
-        bMauDonasi.addActionListener(new java.awt.event.ActionListener() {
+        btnMauDonasi.setText("Donasi");
+        btnMauDonasi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bMauDonasiActionPerformed(evt);
+                btnMauDonasiActionPerformed(evt);
             }
         });
 
@@ -757,27 +754,25 @@ public class GUI extends javax.swing.JFrame {
             pBelumDonasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pBelumDonasiLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bMauDonasi, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMauDonasi, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pBelumDonasiLayout.setVerticalGroup(
             pBelumDonasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pBelumDonasiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(bMauDonasi)
+                .addComponent(btnMauDonasi)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pPilihanDonatur.add(pBelumDonasi, "card2");
 
-        tfNominalPertama.setText("jTextField1");
-
         jLabel35.setText("Input Nominal Donasi :");
 
-        bKirimDonasi.setText("Kirim");
+        btnKirimDonasi.setText("Kirim");
 
-        bKembali.setText("Kembali");
-        bKembali.setActionCommand("");
+        btnKembali.setText("Kembali");
+        btnKembali.setActionCommand("");
 
         javax.swing.GroupLayout pDonasiPertamaLayout = new javax.swing.GroupLayout(pDonasiPertama);
         pDonasiPertama.setLayout(pDonasiPertamaLayout);
@@ -791,9 +786,9 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDonasiPertamaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bKirimDonasi, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnKirimDonasi, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pDonasiPertamaLayout.setVerticalGroup(
@@ -805,8 +800,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(tfNominalPertama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pDonasiPertamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bKirimDonasi)
-                    .addComponent(bKembali))
+                    .addComponent(btnKirimDonasi)
+                    .addComponent(btnKembali))
                 .addContainerGap())
         );
 
@@ -814,9 +809,9 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel36.setText("Nominal Donasi :");
 
-        bUpdateDonasi.setText("Update");
+        btnUpdateDonasi.setText("Update");
 
-        bBatalDonasi.setText("Batalkan Donasi");
+        btnBatalDonasi.setText("Batalkan Donasi");
 
         javax.swing.GroupLayout pIdlePilihanDonasiLayout = new javax.swing.GroupLayout(pIdlePilihanDonasi);
         pIdlePilihanDonasi.setLayout(pIdlePilihanDonasiLayout);
@@ -832,9 +827,9 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pIdlePilihanDonasiLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(bBatalDonasi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBatalDonasi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bUpdateDonasi, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnUpdateDonasi, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pIdlePilihanDonasiLayout.setVerticalGroup(
@@ -846,8 +841,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(tfIdleNominal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pIdlePilihanDonasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bUpdateDonasi)
-                    .addComponent(bBatalDonasi))
+                    .addComponent(btnUpdateDonasi)
+                    .addComponent(btnBatalDonasi))
                 .addContainerGap())
         );
 
@@ -952,41 +947,34 @@ public class GUI extends javax.swing.JFrame {
         pMain.setLayout(pMainLayout);
         pMainLayout.setHorizontalGroup(
             pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pMainLayout.createSequentialGroup()
-                .addComponent(pUserinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(pUserinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pUserMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pUserMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE))
         );
         pMainLayout.setVerticalGroup(
             pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pUserinfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pUserMain, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(233, 233, 233)))
+                    .addContainerGap(74, Short.MAX_VALUE)
+                    .addComponent(pUserMain, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         jLayeredPane1.add(pMain, "card4");
 
         jLabel39.setText("Hello Creator ^^");
 
-        bLogOutAdmin.setText("LogOut");
-        bLogOutAdmin.addActionListener(new java.awt.event.ActionListener() {
+        btnLogOutAdmin.setText("LogOut");
+        btnLogOutAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLogOutAdminActionPerformed(evt);
+                btnLogOutAdminActionPerformed(evt);
             }
         });
 
-        listEventAdmin.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane7.setViewportView(listEventAdmin);
 
         taDeskripsiEventAdmin.setColumns(20);
@@ -1030,16 +1018,15 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(pVerfikasiLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pVerfikasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pVerfikasiLayout.createSequentialGroup()
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pVerfikasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel41)
                             .addComponent(rbVerifTrue)
-                            .addComponent(rbVarifFalse))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(rbVarifFalse))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Verifikasi Event", pVerfikasi);
@@ -1048,11 +1035,6 @@ public class GUI extends javax.swing.JFrame {
         taDeskripsiDtnInAdmin.setRows(5);
         jScrollPane5.setViewportView(taDeskripsiDtnInAdmin);
 
-        listDntInAdmin.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane6.setViewportView(listDntInAdmin);
 
         javax.swing.GroupLayout pViewDntLayout = new javax.swing.GroupLayout(pViewDnt);
@@ -1078,11 +1060,6 @@ public class GUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("View Donatur", pViewDnt);
 
-        listPenerimaInAdmin.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane9.setViewportView(listPenerimaInAdmin);
 
         taDeskripsiPenerimaInAdmin.setColumns(20);
@@ -1114,11 +1091,6 @@ public class GUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("View Penerima", pViewPenerima);
 
-        listPdInAdmin.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane11.setViewportView(listPdInAdmin);
 
         taDeskripsiPdInAdmin.setColumns(20);
@@ -1163,7 +1135,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(pAdminLayout.createSequentialGroup()
                         .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bLogOutAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLogOutAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))))
         );
         pAdminLayout.setVerticalGroup(
@@ -1172,24 +1144,26 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(pAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(bLogOutAdmin))
+                    .addComponent(btnLogOutAdmin))
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(pAdmin, "card5");
 
-        bLogin.setText("Login");
-        bLogin.addActionListener(new java.awt.event.ActionListener() {
+        pLogin.setPreferredSize(new java.awt.Dimension(583, 500));
+
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLoginActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
         tfUsername.setToolTipText("Username");
 
-        bRegister.setText("Register");
+        btnRegister.setText("Register");
 
         javax.swing.GroupLayout pLoginLayout = new javax.swing.GroupLayout(pLogin);
         pLogin.setLayout(pLoginLayout);
@@ -1200,8 +1174,8 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(pLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(176, 176, 176))
         );
         pLoginLayout.setVerticalGroup(
@@ -1212,10 +1186,10 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(bLogin)
+                .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bRegister)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnRegister)
+                .addGap(388, 388, 388))
         );
 
         jLayeredPane1.add(pLogin, "card2");
@@ -1231,33 +1205,30 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLayeredPane1))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         jLayeredPane1.removeAll();
-        
+
         jLayeredPane1.add(pMainDonatur);
         jLayeredPane1.revalidate();
-    }//GEN-LAST:event_bLoginActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void bNewRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNewRegisterActionPerformed
+    private void btnNewRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bNewRegisterActionPerformed
+    }//GEN-LAST:event_btnNewRegisterActionPerformed
 
     private void rbRegisDonaturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRegisDonaturActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbRegisDonaturActionPerformed
-
-    private void bLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogOutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bLogOutActionPerformed
 
     private void tfTanggalMulaiCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTanggalMulaiCreateActionPerformed
         // TODO add your handling code here:
@@ -1275,7 +1246,7 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void bMauDonasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMauDonasiActionPerformed
+    private void btnMauDonasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMauDonasiActionPerformed
         // TODO add your handling code here:
         pPilihanDonatur.removeAll();
         pPilihanDonatur.add(pDonasiPertama);
@@ -1285,78 +1256,167 @@ public class GUI extends javax.swing.JFrame {
 //        jLayeredPilihanDNT.add(pDonasiPertama);
 //        jLayeredPilihanDNT.repaint();
 //        jLayeredPilihanDNT.revalidate();
-    }//GEN-LAST:event_bMauDonasiActionPerformed
+    }//GEN-LAST:event_btnMauDonasiActionPerformed
 
-    private void bLogOutAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogOutAdminActionPerformed
+    private void btnLogOutAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutAdminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bLogOutAdminActionPerformed
+    }//GEN-LAST:event_btnLogOutAdminActionPerformed
 
     private void rbVerifTrueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVerifTrueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbVerifTrueActionPerformed
 
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public JButton getBtnLogin() {
+        return btnLogin;
+    }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI().setVisible(true);
-            }
-        });
+    public JButton getBtnRegister() {
+        return btnRegister;
+    }
+
+    public JButton getBtnCancelRegis() {
+        return btnCancelRegis;
+    }
+
+    public JButton getBtnNewRegister() {
+        return btnNewRegister;
+    }
+
+    public JButton getBtnEditProfile() {
+        return btnEditProfile;
+    }
+
+    public JButton getBtnBatalDonasi() {
+        return btnBatalDonasi;
+    }
+
+    public JButton getBtnDeleteEvent() {
+        return btnDeleteEvent;
+    }
+
+    public JButton getBtnKirimDonasi() {
+        return btnKirimDonasi;
+    }
+
+    public JButton getBtnLogOutAdmin() {
+        return btnLogOutAdmin;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+
+    public JButton getBtnMauDonasi() {
+        return btnMauDonasi;
+    }
+
+    public JButton getBtnUpdateDonasi() {
+        return btnUpdateDonasi;
+    }
+    
+    public JButton getBtnUpdateEvent() {
+        return btnUpdateEvent;
+    }
+    
+    
+    public void addActionListener(ActionListener al) {
+        btnBatalDonasi.addActionListener(al);
+        btnCancelRegis.addActionListener(al);
+        btnDeleteEvent.addActionListener(al);
+        btnEditProfile.addActionListener(al);
+        btnKembali.addActionListener(al);
+        btnKirimDonasi.addActionListener(al);
+        btnLogOutAdmin.addActionListener(al);
+        btnLogin.addActionListener(al);
+        btnLogout.addActionListener(al);
+        btnMauDonasi.addActionListener(al);
+        btnNewRegister.addActionListener(al);
+        btnRegister.addActionListener(al);
+        btnUpdateDonasi.addActionListener(al);
+        btnUpdateEvent.addActionListener(al);
+    }
+    
+    public JList getListDntInAdmin() {
+        return listDntInAdmin;
+    }
+    
+    public int getSelectedDntInAdmin() {
+        return listDntInAdmin.getSelectedIndex();
+    }
+    
+    public JList getListEventAdmin() {
+        return listEventAdmin;
+    }
+    
+    public int getSelectedEventAdmin() {
+        return listEventAdmin.getSelectedIndex();
+    }
+    
+    public JList getListEventDNT() {
+        return listEventDNT;
+    }
+    
+    public int getSelectedEventDNT() {
+        return listEventDNT.getSelectedIndex();
+    }
+    
+    public JList getListEventPD() {
+        return listEventPD;
+    }
+    
+    public int getSelectedEventPD() {
+        return listEventPD.getSelectedIndex();
+    }
+    
+    public JList getListPdInAdmin() {
+        return listPdInAdmin;
+    }
+    
+    public int getSelectedPdInAdmin() {
+        return listPdInAdmin.getSelectedIndex();
+    }
+    
+    public JList getListPenerimaAdmin() {
+        return listPenerimaInAdmin;
+    }
+    
+    public int getSelectedPenerimaInAdmin() {
+        return listPenerimaInAdmin.getSelectedIndex();
+    }
+    
+    public void addMouseAdaper(MouseAdapter ma) {
+        listDntInAdmin.addMouseListener(ma);
+        listEventAdmin.addMouseListener(ma);
+        listEventDNT.addMouseListener(ma);
+        listEventPD.addMouseListener(ma);
+        listPdInAdmin.addMouseListener(ma);
+        listPenerimaInAdmin.addMouseListener(ma);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup AccountType;
     private javax.swing.ButtonGroup PenerimaType;
     private javax.swing.ButtonGroup PenerimaTypeUpdate;
-    private javax.swing.JTextField RegisPassword;
     private javax.swing.ButtonGroup Verifikasi;
     private javax.swing.JButton bAddEvent;
-    private javax.swing.JButton bBatalDonasi;
-    private javax.swing.JButton bDeleteEvent;
-    private javax.swing.JButton bKembali;
-    private javax.swing.JButton bKirimDonasi;
-    private javax.swing.JToggleButton bLogOut;
-    private javax.swing.JButton bLogOutAdmin;
-    private javax.swing.JButton bLogin;
-    private javax.swing.JButton bMauDonasi;
-    private javax.swing.JButton bNewRegister;
-    private javax.swing.JButton bRegister;
-    private javax.swing.JButton bUpdateDonasi;
-    private javax.swing.JButton bUpdateEvent;
-    private javax.swing.JToggleButton btnEditProfile;
+    private javax.swing.JButton btnBatalDonasi;
+    private javax.swing.JButton btnCancelRegis;
+    private javax.swing.JButton btnDeleteEvent;
+    private javax.swing.JButton btnEditProfile;
+    private javax.swing.JButton btnKembali;
+    private javax.swing.JButton btnKirimDonasi;
+    private javax.swing.JButton btnLogOutAdmin;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnMauDonasi;
+    private javax.swing.JButton btnNewRegister;
+    private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnUpdateDonasi;
+    private javax.swing.JButton btnUpdateEvent;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1473,6 +1533,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField tfNominalPertama;
     private javax.swing.JTextField tfRegisEmail;
     private javax.swing.JTextField tfRegisName;
+    private javax.swing.JTextField tfRegisPassword;
     private javax.swing.JTextField tfRegisPasswordConfirmation;
     private javax.swing.JTextField tfRegisTelp;
     private javax.swing.JTextField tfRegisUsername;
