@@ -32,7 +32,7 @@ public class Controller extends MouseAdapter implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if(source == view.getBtnBatalDonasi()) {
-            
+            view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());
         } 
         else if(source == view.getBtnCancelRegis()) {
             view.switcPanel(view.getjLayeredMain(), view.getPLogin());
@@ -54,7 +54,7 @@ public class Controller extends MouseAdapter implements ActionListener{
             //sistem kerja update
             
             //if donatur           
-            view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+            //view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
             
             //if PG
             view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
@@ -66,18 +66,24 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getjLayeredMain(), view.getPLogin());
         }
         else if(source == view.getBtnLogin()) {
-            view.getLayeredPane().removeAll();
+            view.getjLayeredMain().removeAll();
+            
+            
             
             //if admin
-            view.switcPanel(view.getjLayeredMain(), view.getPAdmin());
+            //view.getjLayeredMain().add(view.getPAdmin());
             
             //if donatur
-            view.getjLayeredMain().add(view.getPUserInfo());
-            view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+            //view.getjLayeredMain().add(view.getPMain());
+            //view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
             
             //if PG
-            view.getjLayeredMain().add(view.getPUserInfo());
-            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+            view.getjLayeredMain().add(view.getPMain());            
+            view.getPMainGalangDana().removeAll();
+            view.getPMainGalangDana().add(view.getPMainPenggalangDana());
+            view.getPMainGalangDana().repaint();
+            view.getPMainGalangDana().revalidate();
+            
             
             view.getjLayeredMain().repaint();
             view.getjLayeredMain().revalidate();
@@ -90,18 +96,18 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getPPilihanDonatur(), view.getPDonasiPertama());
         }
         else if(source == view.getBtnNewRegister()) {
-            view.getLayeredPane().removeAll();
+            view.getjLayeredMain().removeAll();
             
             //if admin
-            view.switcPanel(view.getjLayeredMain(), view.getPAdmin());
+            //view.switcPanel(view.getjLayeredMain(), view.getPAdmin());
             
             //if donatur
-            view.getjLayeredMain().add(view.getPUserInfo());
+            view.getjLayeredMain().add(view.getPMain());            
             view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
             
             //if PG
-            view.getjLayeredMain().add(view.getPUserInfo());
-            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+            //view.getjLayeredMain().add(view.getPMain());
+            //view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
             
             view.getjLayeredMain().repaint();
             view.getjLayeredMain().revalidate();
