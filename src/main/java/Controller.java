@@ -23,6 +23,9 @@ public class Controller extends MouseAdapter implements ActionListener{
         view = new GUI();
         //model = new Application(daftarDonatur, daftarPengalangDana)
         //along with Database
+        view.addActionListener(this);
+        view.addMouseAdaper(this);
+        view.setVisible(true);
     }
 
     @Override
