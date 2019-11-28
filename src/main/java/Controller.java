@@ -69,5 +69,26 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
     }
     
-    
+    @Override
+    public void mousePressed(MouseEvent me) {
+        Object source = me.getSource();
+        if(source == view.getListDntInAdmin()) {
+            
+        }
+        else if(source == view.getListEventAdmin()) {
+            
+        }
+        else if(source == view.getListEventDNT()) {
+            
+        }
+        else if(source == view.getListEventPD()) {
+            
+        }
+        else if(source == view.getListPdInAdmin()) {
+            
+        }
+        else if(source == view.getListPenerimaAdmin()) {
+            
+        }
+    }
 }

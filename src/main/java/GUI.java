@@ -1392,6 +1392,86 @@ public class GUI extends javax.swing.JFrame {
         listPdInAdmin.addMouseListener(ma);
         listPenerimaInAdmin.addMouseListener(ma);
     }
+    
+    public JPanel getPAdmin() {
+        return pAdmin;
+    }
+    
+    public JPanel getPBelumDonasi() {
+        return pBelumDonasi;
+    }
+    
+    public JPanel getPDonasiPertama() {
+        return pDonasiPertama;
+    }
+    
+    public JPanel getPEditProfile() {
+        return pEditProfile;
+    }
+    
+    public JPanel getPEditUser() {
+        return pEditUser;
+    }
+    
+    public JPanel getPEventUpdate() {
+        return pEventUpdate;
+    }
+    
+    public JPanel getPIdlePilihanDonasi() {
+        return pIdlePilihanDonasi;
+    }
+    
+    public JPanel getPLogin() {
+        return pLogin;
+    }
+    
+    public JPanel getPMain() {
+        return pMain;
+    }
+    
+    public JPanel getPMainDonatur() {
+        return pMainDonatur;
+    }
+    
+    public JPanel getPMainGalangDana() {
+        return pMainGalangDana;
+    }
+    
+    public JPanel getPMainPenggalangDana() {
+        return pMainPengalangDana;
+    }
+    
+    public JPanel getPPilihanDonatur() {
+        return pPilihanDonatur;
+    }
+    
+    public JPanel getPRegistrasi() {
+        return pRegistrasi;
+    }
+    
+    public JPanel getUserMain() {
+        return pUserMain;
+    }
+    
+    public JPanel getPUserInfo() {
+        return pUserinfo;
+    }
+    
+    public JPanel getPVerifikasi() {
+        return pVerfikasi;
+    }
+    
+    public JPanel getPViewDnt() {
+        return pViewDnt;
+    }
+    
+    public JPanel getPViewPd() {
+        return pViewPd;
+    }
+    
+    public JPanel getPViewPenerima() {
+        return pViewPenerima;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup AccountType;
