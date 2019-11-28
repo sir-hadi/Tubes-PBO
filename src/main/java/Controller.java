@@ -32,40 +32,112 @@ public class Controller extends MouseAdapter implements ActionListener{
             
         } 
         else if(source == view.getBtnCancelRegis()) {
-            
+            view.switcPanel(view.getjLayeredMain(), view.getPLogin());
         }
         else if(source == view.getBtnDeleteEvent()) {
-            
+            //sistem kerja
         }
         else if(source == view.getBtnEditProfile()) {
+            view.switcPanel(view.getPUserMain(), view.getPEditUser());
+        }
+        else if(source == view.getBtnCancelEditProf()){
+            //if donatur           
+            view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
             
+            //if PG
+            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+        }
+        else if(source == view.getBtnDoneEditProf()){
+            //sistem kerja update
+            
+            //if donatur           
+            view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+            
+            //if PG
+            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
         }
         else if(source == view.getBtnKirimDonasi()) {
-            
+            view.switcPanel(view.getPPilihanDonatur(), view.getPIdlePilihanDonasi());
         }
         else if(source == view.getBtnLogOutAdmin()) {
-            
+            view.switcPanel(view.getjLayeredMain(), view.getPLogin());
         }
         else if(source == view.getBtnLogin()) {
+            view.getLayeredPane().removeAll();
+            
+            //if admin
+            view.switcPanel(view.getjLayeredMain(), view.getPAdmin());
+            
+            //if donatur
+            view.getjLayeredMain().add(view.getPUserInfo());
+            view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+            
+            //if PG
+            view.getjLayeredMain().add(view.getPUserInfo());
+            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+            
+            view.getjLayeredMain().repaint();
+            view.getjLayeredMain().revalidate();
             
         }
         else if(source == view.getBtnLogout()) {
-            
+            view.switcPanel(view.getjLayeredMain(), view.getPLogin());
         }
         else if(source == view.getBtnMauDonasi()) {
-            
+            view.switcPanel(view.getPPilihanDonatur(), view.getPDonasiPertama());
         }
         else if(source == view.getBtnNewRegister()) {
+            view.getLayeredPane().removeAll();
             
+            //if admin
+            view.switcPanel(view.getjLayeredMain(), view.getPAdmin());
+            
+            //if donatur
+            view.getjLayeredMain().add(view.getPUserInfo());
+            view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+            
+            //if PG
+            view.getjLayeredMain().add(view.getPUserInfo());
+            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+            
+            view.getjLayeredMain().repaint();
+            view.getjLayeredMain().revalidate();
         }
         else if(source == view.getBtnRegister()) {
-            
+            view.switcPanel(view.getjLayeredMain(), view.getPRegistrasi());
         }
         else if(source == view.getBtnUpdateDonasi()) {
-            
+            //sistem kerja
+        }
+        else if(source == view.getBtnKembali()){
+            view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());
         }
         else if(source == view.getBtnUpdateEvent()) {
+            view.switcPanel(view.getPMainGalangDana(), view.getPEventUpdate());
+        }
+        else if(source == view.getBtnAddEvent()){
+            view.switcPanel(view.getPMainGalangDana(), view.getPEventCreate());
+        }
+        else if(source == view.getBtnCancelCreateEvent()){
+            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+        }
+        else if(source == view.getBtnDoneCreateEvent()){
+            //proses create event
             
+            //balik
+            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+        }
+        else if(source == view.getBtnCancelUpdateEvent()){
+            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+        }
+        else if(source == view.getBtnDoneUpdateEvent()){
+            //proses update event
+            
+            //balik
+            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+        }
+        else if(source == view.getBtnBatalDonasi()){
+            view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());
         }
     }
     
