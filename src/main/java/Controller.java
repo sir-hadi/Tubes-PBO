@@ -45,9 +45,10 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
         else if(source == view.getBtnCancelEditProf()){
             //if donatur           
-            view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+            //view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
             
-            //if PG
+            //if PG            
+            view.switcPanel(view.getPUserMain(), view.getPMainGalangDana());
             view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
         }
         else if(source == view.getBtnDoneEditProf()){
@@ -57,6 +58,7 @@ public class Controller extends MouseAdapter implements ActionListener{
             //view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
             
             //if PG
+            view.switcPanel(view.getPUserMain(), view.getPMainGalangDana());
             view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
         }
         else if(source == view.getBtnKirimDonasi()) {
@@ -96,6 +98,8 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getPPilihanDonatur(), view.getPDonasiPertama());
         }
         else if(source == view.getBtnNewRegister()) {
+            
+            
             view.getjLayeredMain().removeAll();
             
             //if admin
