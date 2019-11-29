@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -1341,8 +1342,37 @@ public class GUI extends javax.swing.JFrame {
         return btnKembali;
     }
     
+    public JRadioButton getRbLembaga() {
+        return rbLembaga;
+    }
     
+    public JRadioButton getRbLembagaUpdate() {
+        return rbLembagaUpdate;
+    }
 
+    public JRadioButton getRbPersonal() {
+        return rbPersonal;
+    }
+    
+    public JRadioButton getRbPersonalUpdate() {
+        return rbPersonalUpdate;
+    }
+    
+    public JRadioButton getRbRegisDonatur() {
+        return rbRegisDonatur;
+    }
+    
+    public JRadioButton getRbRegisPengalangDana() {
+        return rbRegisPengalangDana;
+    }
+    
+    public JRadioButton getRbVarifFalse() {
+        return rbVarifFalse;
+    }
+    
+    public JRadioButton getRbVarifTrue() {
+        return rbVerifTrue;
+    }
     
     
     
