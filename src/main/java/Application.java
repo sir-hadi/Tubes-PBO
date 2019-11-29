@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,6 +19,32 @@ public class Application {
     public Application(List<Donatur> daftarDonatur, List<PengalangDana> daftarPengalangDana) {
         this.daftarDonatur = daftarDonatur;
         this.daftarPengalangDana = daftarPengalangDana;
+    }
+    
+    //source www.geeksforgeeks.org/check-email-address-valid-not-java/
+    public static boolean isEmailValid(String email) 
+    { 
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+                              
+        Pattern pat = Pattern.compile(emailRegex); 
+        if (email == null) 
+            return false; 
+        return pat.matcher(email).matches(); 
+    } 
+    //source www.baeldung.com/java-check-string-number
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
     
     public void validasi(){

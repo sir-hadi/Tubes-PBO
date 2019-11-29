@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -98,7 +99,34 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getPPilihanDonatur(), view.getPDonasiPertama());
         }
         else if(source == view.getBtnNewRegister()) {
-            view.switcPanel(view.getjLayeredMain(), view.getPLogin());
+            String username = view.getTfRegisUsername().getText();            
+            String password = String.valueOf(view.getPfRegisPassword().getPassword());
+            String passConfirm = String.valueOf(view.getPfRegisPasswordConfirmation().getPassword());
+            String nama = view.getTfRegisName().getText();
+            String noTelp = view.getTfRegisTelp().getText();
+            String email = view.getTfRegisEmail().getText();
+            
+            boolean valid = true;                        
+            
+            if (!passConfirm.equals(password)) {
+                valid = false;
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Password and password confirmation does not match");
+            }
+            if (!model.isEmailValid(email)) {
+                valid = false;
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Email Is Not Valid");
+            }
+            if (!model.isNumeric(noTelp)) {
+                valid = false;
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Number Not Valid");
+            }
+
+            if(view.getRbRegisDonatur().isSelected() && valid){
+                //JOptionPane.showMessageDialog(view.getPRegistrasi(), "Weh Valid");
+                model.inputDonatur(username, password, nama, noTelp, email, "D");
+                view.switcPanel(view.getjLayeredMain(), view.getPLogin());
+            }
+            
         }
         else if(source == view.getBtnRegister()) {
             view.switcPanel(view.getjLayeredMain(), view.getPRegistrasi());

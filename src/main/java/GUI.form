@@ -149,14 +149,14 @@
                                   <Component id="tfRegisName" max="32767" attributes="0"/>
                                   <Component id="tfRegisUsername" max="32767" attributes="0"/>
                                   <Component id="tfRegisEmail" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="tfRegisPassword" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="tfRegisPasswordConfirmation" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="rbRegisDonatur" min="-2" pref="113" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="rbRegisPengalangDana" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="tfRegisTelp" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="pfRegisPassword" max="32767" attributes="0"/>
+                                  <Component id="pfRegisPasswordConfirmation" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -170,7 +170,7 @@
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="230" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -200,12 +200,12 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfRegisPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pfRegisPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfRegisPasswordConfirmation" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pfRegisPasswordConfirmation" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -220,7 +220,7 @@
                           <Component id="btnNewRegister" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCancelRegis" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="96" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -280,10 +280,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfRegisEmail">
             </Component>
-            <Component class="javax.swing.JTextField" name="tfRegisPassword">
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfRegisPasswordConfirmation">
-            </Component>
             <Component class="javax.swing.JRadioButton" name="rbRegisDonatur">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
@@ -308,6 +304,16 @@
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nama"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pfRegisPassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pfRegisPasswordConfirmation">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jPasswordField2"/>
               </Properties>
             </Component>
           </SubComponents>
