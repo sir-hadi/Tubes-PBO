@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -16,9 +17,9 @@ public class Application {
     private List<Donatur> daftarDonatur;
     private List<PengalangDana> daftarPengalangDana;
 
-    public Application(List<Donatur> daftarDonatur, List<PengalangDana> daftarPengalangDana) {
-        this.daftarDonatur = daftarDonatur;
-        this.daftarPengalangDana = daftarPengalangDana;
+    public Application() {
+        daftarDonatur = new ArrayList<>();
+        daftarPengalangDana = new ArrayList<>();
     }
     
     //source www.geeksforgeeks.org/check-email-address-valid-not-java/
@@ -94,5 +95,20 @@ public class Application {
         return daftarPengalangDana;
     }
     
+    public void inputPengalangDana(String usernama, String password, String nama, String  noTelp, String email, String sid) {
+        PengalangDana pd = new PengalangDana(usernama, password, nama, noTelp, email, sid);
+        daftarPengalangDana.add(pd);
+    }
+    
+    public PengalangDana getPengalangDana(String username){
+        int i = 0;
+        while(i < daftarPengalangDana.size() && !daftarPengalangDana.get(i).getUsername().equals(username)){
+            i++;
+        }
+        if (i >= daftarPengalangDana.size()) {
+            return null;
+        }
+        return daftarPengalangDana.get(i);
+    }
     
 }

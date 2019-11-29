@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /*
@@ -19,11 +20,13 @@ public class Controller extends MouseAdapter implements ActionListener{
     
     GUI view;
     Application model;
+    UserInfo currentUser;
     
     public Controller() {
         view = new GUI();
         //model = new Application(daftarDonatur, daftarPengalangDana)
         //along with Database
+        model = new Application();
         view.addActionListener(this);
         view.addMouseAdaper(this);
         view.setVisible(true);
@@ -69,27 +72,40 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getjLayeredMain(), view.getPLogin());
         }
         else if(source == view.getBtnLogin()) {
-            view.getjLayeredMain().removeAll();
+            UserInfo ui;
+            ui = model.getDonatur(view.getTfUsername());
+            if (ui==null) { //Donatur Not Found
+                ui = model.getPengalangDana(view.getTfUsername());
+            }
+            if (ui!=null) { //Any Found
+                if(ui.getPassword().equals(String.valueOf(view.getPfPassword().getPassword()))) { //Check Pass
+                    currentUser = ui;
+                    view.getjLayeredMain().removeAll();
+                    
+                    //if admin
+                    //view.getjLayeredMain().add(view.getPAdmin());
+            
+                    if(ui instanceof Donatur) {
+                        view.getjLayeredMain().add(view.getPMain());
+                        view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+                    }
+                    if(ui instanceof PengalangDana) {
+                        view.getjLayeredMain().add(view.getPMain());            
+                        view.getPMainGalangDana().removeAll();
+                        view.getPMainGalangDana().add(view.getPMainPenggalangDana());
+                        view.getPMainGalangDana().repaint();
+                        view.getPMainGalangDana().revalidate();
+                    }
             
             
-            
-            //if admin
-            //view.getjLayeredMain().add(view.getPAdmin());
-            
-            //if donatur
-            //view.getjLayeredMain().add(view.getPMain());
-            //view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
-            
-            //if PG
-            view.getjLayeredMain().add(view.getPMain());            
-            view.getPMainGalangDana().removeAll();
-            view.getPMainGalangDana().add(view.getPMainPenggalangDana());
-            view.getPMainGalangDana().repaint();
-            view.getPMainGalangDana().revalidate();
-            
-            
-            view.getjLayeredMain().repaint();
-            view.getjLayeredMain().revalidate();
+                    view.getjLayeredMain().repaint();
+                    view.getjLayeredMain().revalidate();
+                } else {
+                    JOptionPane.showMessageDialog(view.getPRegistrasi(), "Username or Password are invalid");
+                }
+            } else {
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Username or Password are invalid");
+            }
             
         }
         else if(source == view.getBtnLogout()) {
@@ -99,16 +115,23 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getPPilihanDonatur(), view.getPDonasiPertama());
         }
         else if(source == view.getBtnNewRegister()) {
-            String username = view.getTfRegisUsername().getText();            
+            String username = view.getTfRegisUsername();            
             String password = String.valueOf(view.getPfRegisPassword().getPassword());
             String passConfirm = String.valueOf(view.getPfRegisPasswordConfirmation().getPassword());
-            String nama = view.getTfRegisName().getText();
-            String noTelp = view.getTfRegisTelp().getText();
-            String email = view.getTfRegisEmail().getText();
+            String nama = view.getTfRegisName();
+            String noTelp = view.getTfRegisTelp();
+            String email = view.getTfRegisEmail();
             
             boolean valid = true;                        
-            
-            if (!passConfirm.equals(password)) {
+            if (password.equals("")) {
+                valid = false;
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Enter Password");
+            } 
+            else if (passConfirm.equals("")) {
+                valid = false;
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Confirm Password");
+            }
+            else if (!passConfirm.equals(password)) {
                 valid = false;
                 JOptionPane.showMessageDialog(view.getPRegistrasi(), "Password and password confirmation does not match");
             }
@@ -124,6 +147,12 @@ public class Controller extends MouseAdapter implements ActionListener{
             if(view.getRbRegisDonatur().isSelected() && valid){
                 //JOptionPane.showMessageDialog(view.getPRegistrasi(), "Weh Valid");
                 model.inputDonatur(username, password, nama, noTelp, email, "D");
+                view.switcPanel(view.getjLayeredMain(), view.getPLogin());
+            }
+            
+            if(view.getRbRegisPengalangDana().isSelected() && valid){
+                //JOptionPane.showMessageDialog(view.getPRegistrasi(), "Weh Valid");
+                model.inputPengalangDana(username, password, nama, noTelp, email, "P");
                 view.switcPanel(view.getjLayeredMain(), view.getPLogin());
             }
             

@@ -1263,7 +1263,8 @@ public class GUI extends javax.swing.JFrame {
     private void btnCancelEditProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelEditProfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelEditProfActionPerformed
-
+    
+    //Buttons
     public JButton getBtnLogin() {
         return btnLogin;
     }
@@ -1348,6 +1349,8 @@ public class GUI extends javax.swing.JFrame {
         return btnKembali;
     }
     
+    
+    //RadioButton
     public JRadioButton getRbLembaga() {
         return rbLembaga;
     }
@@ -1379,35 +1382,228 @@ public class GUI extends javax.swing.JFrame {
     public JRadioButton getRbVarifTrue() {
         return rbVerifTrue;
     }
-
-    public JTextField getTfRegisEmail() {
-        return tfRegisEmail;
+    
+    
+    //Get Text Field
+    public String getTfAlamatPenerimaCreate() {
+        return tfAlamatPenerimaCreate.getText();
+    }
+    
+    public String getTfAlamatPenerimaUpdate() {
+        return tfAlamatPenerimaUpdate.getText();
+    }
+    
+    public String getTfDescriptionCreate() {
+        return tfDescriptionCreate.getText();
+    }
+    
+    public String getTfDescriptionUpdate() {
+        return tfDescriptionUpdate.getText();
+    }
+    
+    public String getTfIdleNominal() {
+        return tfIdleNominal.getText();
+    }
+    
+    public String getTfNamaEventCreate() {
+        return tfNamaEventCreate.getText();
+    }
+    
+    public String getTfNamaEventUpdate() {
+        return tfNamaEventUpdate.getText();
+    }
+    
+    public String getTfNamaPenerimaCreate() {
+        return tfNamaPenerimaCreate.getText();
+    }
+    
+    public String getTfNamaPenerimaUpdate() {
+        return tfNamaPenerimaUpdate.getText();
+    }
+    
+    public String getTfNewEmail() {
+        return tfNewEmail.getText();
+    }
+    
+    public String getTfNewName() {
+        return tfNewName.getText();
+    }
+    
+    public String getTfNewNoTelp() {
+        return tfNewNoTelp.getText();
+    }
+    
+    public String getTfNominal() {
+        return tfNominalPertama.getText();
+    }
+    
+    public String getTfRegisEmail() {
+        return tfRegisEmail.getText();
     }
 
-    public JTextField getTfRegisName() {
-        return tfRegisName;
+    public String getTfRegisName() {
+        return tfRegisName.getText();
+    }    
+
+    public String getTfRegisTelp() {
+        return tfRegisTelp.getText();
     }
 
+    public String getTfRegisUsername() {
+        return tfRegisUsername.getText();
+    }
+    
+    public String getTfTanggalMulaiCreate() {
+        return tfTanggalMulaiCreate.getText();
+    }
+    
+    public String getTfTanggalMulaiUpdate() {
+        return tfTanggalMulaiUpdate.getText();
+    }
+    
+    public String getTfTanggalSelesaiCreate() {
+        return tfTanggalSelesaiCreate.getText();
+    }
+    
+    public String getTfTanggalSelesaiUpdate() {
+        return tfTanggalSelesaiUpdate.getText();
+    }
+    
+    public String getTfTargetDanaCreate() {
+        return tfTargetDanaCreate.getText();
+    }
+    
+    public String getTfTargetDanaUpdate() {
+        return tfTargetDanaUpdate.getText();
+    }
+    
+    public String getTfTelpPenerimaCreate() {
+        return jTextField3.getText();
+        //Lupa Ganti Nama
+    }
+    
+    public String getTfTelpPenerimaUpdate() {
+        return tfTelpPenerimaUpdate.getText();
+    }
+    
+    public String getTfUsername() {
+        return tfUsername.getText();
+    }
+    
+    //Set Text Field
+    public void setTfAlamatPenerimaCreate(String s) {
+        tfAlamatPenerimaCreate.setText(s);
+    }
+    
+    public void setTfAlamatPenerimaUpdate(String s) {
+        tfAlamatPenerimaUpdate.setText(s);
+    }
+    
+    public void setTfDescriptionCreate(String s) {
+        tfDescriptionCreate.setText(s);
+    }
+    
+    public void setTfDescriptionUpdate(String s) {
+        tfDescriptionUpdate.setText(s);
+    }
+    
+    public void setTfIdleNominal(String s) {
+        tfIdleNominal.setText(s);
+    }
+    
+    public void setTfNamaEventCreate(String s) {
+        tfNamaEventCreate.setText(s);
+    }
+    
+    public void setTfNamaEventUpdate(String s) {
+        tfNamaEventUpdate.setText(s);
+    }
+    
+    public void setTfNamaPenerimaCreate(String s) {
+        tfNamaPenerimaCreate.setText(s);
+    }
+    
+    public void setTfNamaPenerimaUpdate(String s) {
+        tfNamaPenerimaUpdate.setText(s);
+    }
+    
+    public void setTfNewEmail(String s) {
+        tfNewEmail.setText(s);
+    }
+    
+    public void setTfNewName(String s) {
+        tfNewName.setText(s);
+    }
+    
+    public void setTfNewNoTelp(String s) {
+        tfNewNoTelp.setText(s);
+    }
+    
+    public void setTfNominalPertama(String s) {
+        tfNominalPertama.setText(s);
+    }
+    
+    public void setTfRegisEmail(String s) {
+        tfRegisEmail.setText(s);
+    }
+    
+    public void setTfRegisName(String s) {
+        tfRegisName.setText(s);
+    }
+    
+    public void setTfRegisTelp(String s) {
+        tfRegisTelp.setText(s);
+    }
+    
+    public void setTfRegisUsername(String s) {
+        tfRegisUsername.setText(s);
+    }
+    
+    public void setTfTanggalMulaiCreate(String s) {
+        tfTanggalMulaiCreate.setText(s);
+    }
+    
+    public void setTfTanggalMulaiUpdate(String s) {
+        tfTanggalMulaiUpdate.setText(s);
+    }
+    
+    public void setTfTanggalSelesaiCreate(String s) {
+        tfTanggalSelesaiCreate.setText(s);
+    }
+    
+    public void setTfTanggalSelesaiUpdate(String s) {
+        tfTanggalSelesaiUpdate.setText(s);
+    }
+    
+    public void setTfTargetDanaCreate(String s) {
+        tfTargetDanaCreate.setText(s);
+    }
+    
+    public void setTfTargetDanaUpdate(String s) {
+        tfTargetDanaUpdate.setText(s);
+    }
+    
+    public void setTfTelpPenerimaCreate(String s) {
+        jTextField3.setText(s);
+        //Lupa Ganti Nama
+    }
+    
+    public void setTfTelpPenerimaUpdate(String s) {
+        tfTelpPenerimaUpdate.setText(s);
+    }
+    
+    //Password Field
+    public JPasswordField getPfPassword() {
+        return pfPassword;
+    }
+    
     public JPasswordField getPfRegisPassword() {
         return pfRegisPassword;
     }
 
     public JPasswordField getPfRegisPasswordConfirmation() {
         return pfRegisPasswordConfirmation;
-    }    
-
-    public JTextField getTfRegisTelp() {
-        return tfRegisTelp;
     }
-
-    public JTextField getTfRegisUsername() {
-        return tfRegisUsername;
-    }
-    
-    
-    
-    
-    
     
     public void addActionListener(ActionListener al) {
         btnBatalDonasi.addActionListener(al);
@@ -1491,6 +1687,7 @@ public class GUI extends javax.swing.JFrame {
         listPenerimaInAdmin.addMouseListener(ma);
     }
     
+    //Panel
     public JPanel getPAdmin() {
         return pAdmin;
     }
