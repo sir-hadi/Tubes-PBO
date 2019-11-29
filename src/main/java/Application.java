@@ -85,4 +85,14 @@ public class Application {
             daftarDonatur.remove(i);
         }
     }
+
+    public List<Donatur> getDaftarDonatur() {
+        return daftarDonatur;
+    }
+
+    public List<PengalangDana> getDaftarPengalangDana() {
+        return daftarPengalangDana;
+    }
+    
+    
 }
