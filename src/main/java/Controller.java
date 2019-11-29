@@ -98,23 +98,7 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getPPilihanDonatur(), view.getPDonasiPertama());
         }
         else if(source == view.getBtnNewRegister()) {
-            
-            
-            view.getjLayeredMain().removeAll();
-            
-            //if admin
-            //view.switcPanel(view.getjLayeredMain(), view.getPAdmin());
-            
-            //if donatur
-            view.getjLayeredMain().add(view.getPMain());            
-            view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
-            
-            //if PG
-            //view.getjLayeredMain().add(view.getPMain());
-            //view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
-            
-            view.getjLayeredMain().repaint();
-            view.getjLayeredMain().revalidate();
+            view.switcPanel(view.getjLayeredMain(), view.getPLogin());
         }
         else if(source == view.getBtnRegister()) {
             view.switcPanel(view.getjLayeredMain(), view.getPRegistrasi());
