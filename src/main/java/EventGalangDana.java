@@ -20,7 +20,7 @@ public class EventGalangDana {
     private Date tglMulai, tglSelesai;
     private Double targetDana;
     private String description;
-    private boolean verified = false;
+    private boolean verified = true;//was true cuz for testing
     private static int id=1;
     private String sid;
 

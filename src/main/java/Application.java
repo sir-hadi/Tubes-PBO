@@ -16,10 +16,13 @@ import java.util.regex.Pattern;
 public class Application {
     private List<Donatur> daftarDonatur;
     private List<PengalangDana> daftarPengalangDana;
+    private List<EventGalangDana> daftarEventValid;
 
     public Application() {
         daftarDonatur = new ArrayList<>();
         daftarPengalangDana = new ArrayList<>();
+        daftarEventValid = new ArrayList<>();
+        
     }
     
     //source www.geeksforgeeks.org/check-email-address-valid-not-java/
@@ -133,4 +136,39 @@ public class Application {
         }
         return s;
     }
+    
+    public String[] getListValidEventName() {
+        String[] eventName = new String[daftarEventValid.size()];
+        for (int i = 0; i < eventName.length; i++) {
+            eventName[i] = daftarEventValid.get(i).getNama();
+        }
+
+        return eventName;
+    }
+
+    public List<EventGalangDana> getDaftarEventValid() {
+        return daftarEventValid;
+    }
+    
+    public EventGalangDana getEventValidByIndex(int i){
+        return daftarEventValid.get(i);
+    }
+    
+    public void insertingValidOnes(){
+        daftarEventValid.clear();
+        for(PengalangDana pg : daftarPengalangDana){
+            for(EventGalangDana egd : pg.getListEvent()){
+                int j = 0;
+                if (egd.isVerified()){
+                    daftarEventValid.add(j, egd);
+                    j++;
+                    System.out.println("done 1");
+                }
+                
+            }
+        }
+    }
+    
+    
+
 }

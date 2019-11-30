@@ -1654,6 +1654,14 @@ public class GUI extends javax.swing.JFrame {
         return listEventDNT.getSelectedValue();
     }
     
+    public void setListEventDNT(String[] s){
+        listEventDNT.setListData(s);
+    }
+    
+    public int getSelectedIndexEventDNT(){
+        return listEventDNT.getSelectedIndex();
+    }
+    
     public JList getListEventPD() {
         return listEventPD;
     }

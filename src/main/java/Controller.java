@@ -35,6 +35,7 @@ public class Controller extends MouseAdapter implements ActionListener{
         view.addActionListener(this);
         view.addMouseAdaper(this);
         view.setVisible(true);
+        
     }
 
     @Override
@@ -96,6 +97,7 @@ public class Controller extends MouseAdapter implements ActionListener{
                     if(currentUser instanceof Donatur) {
                         view.getjLayeredMain().add(view.getPMain());
                         view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+                        view.setListEventDNT((model.getListValidEventName()));
                     }
                     if(currentUser instanceof PengalangDana) {
                         view.getjLayeredMain().add(view.getPMain());     
@@ -215,6 +217,7 @@ public class Controller extends MouseAdapter implements ActionListener{
                     //balik
                     view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
                     view.setListEventPD(model.getListEventId((PengalangDana) currentUser));
+                    model.insertingValidOnes();
                 }
             } catch (ParseException ex) {
                 JOptionPane.showMessageDialog(view.getPRegistrasi(), "Wrong Date Format");
@@ -244,7 +247,8 @@ public class Controller extends MouseAdapter implements ActionListener{
             
         }
         else if(source == view.getListEventDNT()) {
-            
+            int index = view.getSelectedIndexEventDNT();
+            view.setTaDeskripsiDNTText(model.getEventValidByIndex(index).getDescription());
         }
         else if(source == view.getListEventPD()) {
             String id = view.getSelectedEventPD();
