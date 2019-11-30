@@ -98,7 +98,8 @@ public class Controller extends MouseAdapter implements ActionListener{
                         view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
                     }
                     if(currentUser instanceof PengalangDana) {
-                        view.getjLayeredMain().add(view.getPMain());            
+                        view.getjLayeredMain().add(view.getPMain());     
+                        view.switcPanel(view.getPUserMain(), view.getPMainGalangDana());
                         view.getPMainGalangDana().removeAll();
                         view.getPMainGalangDana().add(view.getPMainPenggalangDana());
                         view.getPMainGalangDana().repaint();
