@@ -1634,48 +1634,52 @@ public class GUI extends javax.swing.JFrame {
         return listDntInAdmin;
     }
     
-    public int getSelectedDntInAdmin() {
-        return listDntInAdmin.getSelectedIndex();
+    public String getSelectedDntInAdmin() {
+        return listDntInAdmin.getSelectedValue();
     }
     
     public JList getListEventAdmin() {
         return listEventAdmin;
     }
     
-    public int getSelectedEventAdmin() {
-        return listEventAdmin.getSelectedIndex();
+    public String getSelectedEventAdmin() {
+        return listEventAdmin.getSelectedValue();
     }
     
     public JList getListEventDNT() {
         return listEventDNT;
     }
     
-    public int getSelectedEventDNT() {
-        return listEventDNT.getSelectedIndex();
+    public String getSelectedEventDNT() {
+        return listEventDNT.getSelectedValue();
     }
     
     public JList getListEventPD() {
         return listEventPD;
     }
     
-    public int getSelectedEventPD() {
-        return listEventPD.getSelectedIndex();
+    public void setListEventPD(String[] s) {
+        listEventPD.setListData(s);
+    }
+    
+    public String getSelectedEventPD() {
+        return listEventPD.getSelectedValue();
     }
     
     public JList getListPdInAdmin() {
         return listPdInAdmin;
     }
     
-    public int getSelectedPdInAdmin() {
-        return listPdInAdmin.getSelectedIndex();
+    public String getSelectedPdInAdmin() {
+        return listPdInAdmin.getSelectedValue();
     }
     
     public JList getListPenerimaAdmin() {
         return listPenerimaInAdmin;
     }
     
-    public int getSelectedPenerimaInAdmin() {
-        return listPenerimaInAdmin.getSelectedIndex();
+    public String getSelectedPenerimaInAdmin() {
+        return listPenerimaInAdmin.getSelectedValue();
     }
     
     public void addMouseAdaper(MouseAdapter ma) {
@@ -1773,8 +1777,29 @@ public class GUI extends javax.swing.JFrame {
         return jLayeredMain;
     }
 
+    public void setTaDeskripsiDNTText(String s) {
+        taDeskripsiDNT.setText(s);
+    }
     
+    public void setTaDeskripsiDtnInAdminText(String s) {
+        taDeskripsiDtnInAdmin.setText(s);
+    }
     
+    public void setTaDeskriEventAdminText(String s) {
+        taDeskripsiEventAdmin.setText(s);
+    }
+    
+    public void setTaDeskripsiPDText(String s) {
+        taDeskripsiPD.setText(s);
+    }
+    
+    public void setTaDeskripsiPdInAdminText(String s) {
+        taDeskripsiPdInAdmin.setText(s);
+    }
+    
+    public void setTaDeskripsiPenerimaInAdminText(String s) {
+        taDeskripsiPenerimaInAdmin.setText(s);
+    }
     
     
     
@@ -1791,6 +1816,7 @@ public class GUI extends javax.swing.JFrame {
         j.repaint();
         j.revalidate();
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup AccountType;

@@ -59,9 +59,9 @@ public class Application {
         daftarDonatur.add(d);
     }
     
-    public Donatur getDonatur(String id){
+    public Donatur getDonatur(String username){
         int i = 0;
-        while(i < daftarDonatur.size() && !daftarDonatur.get(i).getSid().equals(id)){
+        while(i < daftarDonatur.size() && !daftarDonatur.get(i).getUsername().equals(username)){
             i++;
         }
         if (i >= daftarDonatur.size()) {
@@ -86,7 +86,7 @@ public class Application {
             daftarDonatur.remove(i);
         }
     }
-
+    
     public List<Donatur> getDaftarDonatur() {
         return daftarDonatur;
     }
@@ -111,4 +111,26 @@ public class Application {
         return daftarPengalangDana.get(i);
     }
     
+    public String searchEvent(PengalangDana pd, String id) {
+        //Change into DB later
+        int i = 0;
+        List<EventGalangDana> l = pd.getListEvent();
+        while(i < l.size() && !l.get(i).getSid().equals(id)) {
+            i++;
+        } 
+        if (i >= l.size()) {
+            return "";
+        }
+        return "ID = "+l.get(i).getSid()+"\n"
+               +"Nama Event = "+l.get(i).getNama()+"\n";
+    }
+    
+    public String[] getListEventId(PengalangDana pd) {
+        List<EventGalangDana> l = pd.getListEvent();
+        String[] s = new String[l.size()];
+        for (int i = 0; i < l.size(); i++) {
+            s[i] = l.get(i).getSid();
+        }
+        return s;
+    }
 }

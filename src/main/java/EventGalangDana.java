@@ -24,8 +24,7 @@ public class EventGalangDana {
     private static int id=1;
     private String sid;
 
-    public EventGalangDana(Penerima penerima , String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description) {
-        this.penerima = penerima;
+    public EventGalangDana(String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description) {
         this.nama = nama;
         this.tglMulai = tglMulai;
         this.tglSelesai = tglSelesai;
@@ -111,5 +110,14 @@ public class EventGalangDana {
     public String getSid() {
         return sid;
     }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    
     
 }

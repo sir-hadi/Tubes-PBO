@@ -19,9 +19,23 @@ public class PengalangDana extends UserInfo{
         listEvent = new ArrayList<>();
     }
     
-    public void createEvent(Penerima penerima, String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description) {
-        EventGalangDana e = new EventGalangDana(penerima, nama, tglMulai, tglSelesai, targetDana, description);
+    public void createEvent(String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description) {
+        EventGalangDana e = new EventGalangDana(nama, tglMulai, tglSelesai, targetDana, description);
         listEvent.add(e);
+    }
+    
+    public void createEvent(String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description, String namaPenerima, String telpPenerima, String alamatPenerima, boolean i) {
+        EventGalangDana e = new EventGalangDana(nama, tglMulai, tglSelesai, targetDana, description);
+        if(i) {
+            e.createPenerimaLembaga(namaPenerima, alamatPenerima, telpPenerima);
+        } else {
+            e.createPenerimaPersonal(namaPenerima, alamatPenerima, telpPenerima);
+        }
+        listEvent.add(e);
+    }
+    
+    public List<EventGalangDana> getListEvent() {
+        return listEvent;
     }
     
     public EventGalangDana getEvent (String id) {
@@ -34,5 +48,6 @@ public class PengalangDana extends UserInfo{
         }
         return listEvent.get(i);
     }
+    
     
 }
