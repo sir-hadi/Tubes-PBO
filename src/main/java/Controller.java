@@ -26,6 +26,7 @@ public class Controller extends MouseAdapter implements ActionListener{
     GUI view;
     Application model;
     UserInfo currentUser;
+    EventGalangDana currentSeletedEgdByAdmin;
     
     public Controller() {
         view = new GUI();
@@ -131,11 +132,16 @@ public class Controller extends MouseAdapter implements ActionListener{
             UserInfo ui;
             
             if(view.getTfUsername().equals("admin") && String.valueOf(view.getPfPassword().getPassword()).equals("admin") ){
-                view.setListDntInAdmin(model.ListDNTForAdmin());
-                view.setListEventAdmin(model.ListEventForAdmin());
-                view.setListPdInAdmin(model.ListPdForAdmin());
-                view.setListPenerimaInAdmin(model.ListPenerimaForAdmin());
-                view.getjLayeredMain().add(view.getPAdmin());
+                try {
+                    view.setListDntInAdmin(model.ListDNTForAdmin());
+                    view.setListEventAdmin(model.ListEventForAdmin());
+                    view.setListPdInAdmin(model.ListPdForAdmin());
+                    view.setListPenerimaInAdmin(model.ListPenerimaForAdmin());
+                    view.getjLayeredMain().add(view.getPAdmin());
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             }
             
             
@@ -368,6 +374,22 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
         else if(source == view.getBtnBatalDonasi()){
             view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());
+        }else if(source == view.getRbVarifTrue()){
+            if (view.getRbVarifTrue().isSelected()) {
+                if (currentSeletedEgdByAdmin != null) {
+                    model.VarifiedEvent(model.searchEventById(view.getSelectedEventAdmin()), true);
+                    refreshTaDeskEventOnAdmin();
+                }
+            }
+
+        }else if(source == view.getRbVarifFalse()){
+            if (view.getRbVarifFalse().isSelected()) {
+                if (currentSeletedEgdByAdmin != null) {
+                    model.VarifiedEvent(model.searchEventById(view.getSelectedEventAdmin()), false);
+                    refreshTaDeskEventOnAdmin();
+                }
+            }
+            
         }
     }
     
@@ -375,10 +397,17 @@ public class Controller extends MouseAdapter implements ActionListener{
     public void mousePressed(MouseEvent me) {
         Object source = me.getSource();
         if(source == view.getListDntInAdmin()) {
-            //model.getL
+            String id = view.getSelectedDntInAdmin();
+            Donatur currentDNT = model.searchDNTById(id);
+            view.setTaDeskripsiDtnInAdminText(
+            "Nama : "+currentDNT.getNama()+
+            "\nUsername : "+currentDNT.getUsername()+
+            "\nEmail : "+currentDNT.getEmail()+
+            "\nNomer Telp"+currentDNT.getNoTelp()
+            );
         }
         else if(source == view.getListEventAdmin()) {
-            
+            refreshTaDeskEventOnAdmin();
         }
         else if(source == view.getListEventDNT()) {
             refreshTaDeskDNT();
@@ -388,24 +417,63 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.setTaDeskripsiPDText(model.searchEvent((PengalangDana) currentUser,id));
         }
         else if(source == view.getListPdInAdmin()) {
-            
+            String id = view.getSelectedPdInAdmin();
+            PengalangDana currentPD = model.searchPegalangDanaById(id);
+            view.setTaDeskripsiPdInAdminText(
+            "Nama : "+currentPD.getNama()+
+            "\nUsername : "+currentPD.getUsername()+
+            "\nEmail : "+currentPD.getEmail()+
+            "\nNomor Telp"+currentPD.getNoTelp()
+            );
         }
         else if(source == view.getListPenerimaAdmin()) {
-            
+            String id = view.getSelectedPenerimaInAdmin();
+            String type;
+            Penerima currenPenerima = model.searchPeberimaById(id);
+            if (currenPenerima instanceof Lembaga) {
+                type = "Lembaga";
+            }else{
+                type = "Personal";
+            }
+            view.setTaDeskripsiPenerimaInAdminText(
+            "Nama Penerima : "+currenPenerima.getNama()+
+            "Jenis Penerima : "+type+
+            "Alamat : "+currenPenerima.getAlamat()+
+            "Nomor Telp : "+currenPenerima.getNoTelp()
+            );
         }
     }
     
     public void refreshTaDeskDNT(){
         int index = view.getSelectedIndexEventDNT();
-            String msg = model.getEventValidByIndex(index).getDescription();
-            if (model.getEventValidByIndex(index).getNominalDonasiByDonatur((Donatur) currentUser) == 0) {
-                view.setTaDeskripsiDNTText(msg);
-                view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());// biar panel donasi ke refresh kalo dia belum donasi
-            } else {
-                msg += "\n====================================================="
-                        + "\n Your dantion to this Event is " + model.getEventValidByIndex(index).getNominalDonasiByDonatur((Donatur) currentUser);
-                view.setTaDeskripsiDNTText(msg);
-                view.switcPanel(view.getPPilihanDonatur(), view.getPIdlePilihanDonasi());
-            }
+        String msg = model.getEventValidByIndex(index).getDescription();
+        if (model.getEventValidByIndex(index).getNominalDonasiByDonatur((Donatur) currentUser) == 0) {
+            view.setTaDeskripsiDNTText(msg);
+            view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());// biar panel donasi ke refresh kalo dia belum donasi
+        } else {
+            msg += "\n====================================================="
+                    + "\n Your dantion to this Event is " + model.getEventValidByIndex(index).getNominalDonasiByDonatur((Donatur) currentUser);
+            view.setTaDeskripsiDNTText(msg);
+            view.switcPanel(view.getPPilihanDonatur(), view.getPIdlePilihanDonasi());
+        }
+    }
+    
+    public void refreshTaDeskEventOnAdmin(){
+        String id = view.getSelectedEventAdmin();
+        EventGalangDana currentEGD = model.searchEventById(id);            
+        if (currentEGD.isVerified()) {
+            view.getRbVarifTrue().isSelected();
+        } else {
+            view.getRbVarifFalse().isSelected();
+        }
+        view.setTaDeskriEventAdminText(
+        "Nama Event : "+currentEGD.getNama()+
+        "\nDeskripsi : "+currentEGD.getDescription()+
+        "\nTanggal : "+currentEGD.getTglMulai()+" - "+currentEGD.getTglSelesai()+
+        "\nTarget : "+currentEGD.getTargetDana()+
+        "\nPenerima ID : "+currentEGD.getPenerima().getSid()+
+        "\nNama Penerima : "+currentEGD.getPenerima().getNama()+
+        "\nIs Event Valid : "+currentEGD.isVerified()
+        );
     }
 }

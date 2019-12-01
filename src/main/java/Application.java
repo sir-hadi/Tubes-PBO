@@ -257,11 +257,51 @@ public class Application {
             }
         }
         String[] penerimaId = (String[]) penerimaIdList.toArray();
-        String[] pdId = new String[pdIdList.size()];
-        for (int i = 0; i < pdIdList.size(); i++) {
-           pdId[i] = pdIdList.get(i);
-        }
+//        String[] penerimaId = new String[penerimaIdList.size()];
+//        for (int i = 0; i < penerimaIdList.size(); i++) {
+//           penerimaId[i] = penerimaIdList.get(i);
+//        }
         return penerimaId;
+    }
+    
+    public EventGalangDana searchEventById(String id){
+        for(PengalangDana pg : daftarPengalangDana){
+            for(EventGalangDana egd : pg.getListEvent()){
+                if(egd.getSid().equals(id)){
+                    return egd;
+                }
+            }
+        }
+        return null;
+    }
+    
+    public Donatur searchDNTById(String id){
+        for(Donatur d : daftarDonatur){
+            if(d.getSid().equals(id)){
+                return d;
+            }
+        }
+        return null;
+    }
+    
+    public PengalangDana searchPegalangDanaById(String id){
+        for(PengalangDana pd : daftarPengalangDana){
+            if (pd.getSid().equals(id)) {
+                return pd;
+            }
+        }
+        return null;
+    }
+    
+    public Penerima searchPeberimaById(String id){
+        for(PengalangDana pd : daftarPengalangDana){
+            for(EventGalangDana egd : pd.getListEvent()){
+                if(egd.getPenerima().getSid().equals(id)){
+                    return egd.getPenerima();
+                }
+            }
+        }
+        return null;
     }
     
 
