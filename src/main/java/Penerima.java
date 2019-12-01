@@ -12,11 +12,15 @@ public abstract class Penerima {
     private String nama;
     private String alamat;
     private String noTelp;
+    private static int id=1;
+    private String sid;
+    
 
     public Penerima(String nama, String alamat, String noTelp) {
         this.nama = nama;
         this.alamat = alamat;
         this.noTelp = noTelp;
+        this.sid = "P"+id++;
     }
 
     public String getNama() {

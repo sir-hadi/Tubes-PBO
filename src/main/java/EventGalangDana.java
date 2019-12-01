@@ -34,6 +34,17 @@ public class EventGalangDana {
         this.sid = "EG"+id++;
     }
     
+    public void updateGalangDana(String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description, String namaPenerima, String telpPenerima, String alamatPenerima) {
+        this.nama = nama;
+        this.tglMulai = tglMulai;
+        this.tglSelesai = tglSelesai;
+        this.targetDana = targetDana;
+        this.description = description;
+        this.penerima.setAlamat(alamatPenerima);
+        this.penerima.setNama(namaPenerima);
+        this.penerima.setNoTelp(telpPenerima);
+    }
+    
     public void createDonasi(Donatur donatur, double nominal) {
         Donasi d = new Donasi(donatur, nominal);
         listDonasi.add(d);

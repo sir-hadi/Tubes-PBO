@@ -34,6 +34,16 @@ public class PengalangDana extends UserInfo{
         listEvent.add(e);
     }
     
+    public void deleteEvent(String id) {
+        int i = 0;
+        while(i < listEvent.size() && !listEvent.get(i).getSid().equals(id)){
+            i++;
+        }
+        if (i < listEvent.size()) {
+            listEvent.remove(i);
+        }
+    }
+    
     public List<EventGalangDana> getListEvent() {
         return listEvent;
     }
@@ -49,5 +59,10 @@ public class PengalangDana extends UserInfo{
         return listEvent.get(i);
     }
     
+//    public void updateEvent(EventGalangDana egd, String nama, Date tglMulai, Date tglSelesai, Double targetDana, String description, String namaPenerima, String telpPenerima, String alamatPenerima, boolean i) {
+//        for (EventGalangDana e : listEvent) {
+//            if(e.get)
+//        }
+//    }
     
 }

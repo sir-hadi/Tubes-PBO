@@ -52,7 +52,15 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getjLayeredMain(), view.getPLogin());
         }
         else if(source == view.getBtnDeleteEvent()) {
-            //sistem kerja
+            if(view.getSelectedEventPD()!=null) {
+                int yes = JOptionPane.showOptionDialog(view.getPMainGalangDana(), "Are you sure you want to delete Event?", "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+                if(yes==0) {
+                    ((PengalangDana) currentUser).deleteEvent(view.getSelectedEventPD());
+                    view.setListEventPD(model.getListEventId((PengalangDana) currentUser));
+                }
+            } else {
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "No Event Selected");
+            }
         }
         else if(source == view.getBtnEditProfile()) {
             view.switcPanel(view.getPUserMain(), view.getPEditUser());
@@ -201,7 +209,26 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());
         }
         else if(source == view.getBtnUpdateEvent()) {
-            view.switcPanel(view.getPMainGalangDana(), view.getPEventUpdate());
+            if(view.getSelectedEventPD()==null) {
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "No Event Selected");
+            } else {
+                SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
+                view.switcPanel(view.getPMainGalangDana(), view.getPEventUpdate());
+                EventGalangDana egd = ((PengalangDana) currentUser).getEvent(view.getSelectedEventPD());
+                view.setTfNamaEventUpdate(egd.getNama());
+                view.setTfTanggalMulaiUpdate(format.format(egd.getTglMulai()));
+                view.setTfTanggalSelesaiUpdate(format.format(egd.getTglSelesai()));
+                view.setTfTargetDanaUpdate(String.valueOf(egd.getTargetDana()));
+                view.setTfDescriptionUpdate(egd.getDescription());
+                view.setTfNamaPenerimaUpdate(egd.getPenerima().getNama());
+                view.setTfAlamatPenerimaUpdate(egd.getPenerima().getAlamat());
+                view.setTfTelpPenerimaUpdate(egd.getPenerima().getNoTelp());
+                if(egd.getPenerima() instanceof Lembaga) {
+                    view.getRbLembagaUpdate().setSelected(true);
+                } else {
+                    view.getRbPersonalUpdate().setSelected(true);
+                }
+            }
         }
         else if(source == view.getBtnAddEvent()){
             view.switcPanel(view.getPMainGalangDana(), view.getPEventCreate());
@@ -232,7 +259,7 @@ public class Controller extends MouseAdapter implements ActionListener{
                     JOptionPane.showMessageDialog(view.getPRegistrasi(), "Number Not Valid");
                 }
                 if(valid) {
-                    ((PengalangDana) currentUser).createEvent(alamat, tanggalMulai, tanggalSelesai, targetDana, deskripsi, namaPenerima, telpPenerima, namaPenerima, penerima);
+                    ((PengalangDana) currentUser).createEvent(namaEvent, tanggalMulai, tanggalSelesai, targetDana, deskripsi, namaPenerima, telpPenerima, namaPenerima, penerima);
                     //balik
                     view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
                     view.setListEventPD(model.getListEventId((PengalangDana) currentUser));
@@ -246,10 +273,39 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
         }
         else if(source == view.getBtnDoneUpdateEvent()){
-            //proses update event
+            SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
+            try {
+                String namaEvent = view.getTfNamaEventUpdate();
+                Date tanggalMulai = format.parse(view.getTfTanggalMulaiUpdate());
+                Date tanggalSelesai = format.parse(view.getTfTanggalSelesaiUpdate());
+                Double targetDana = Double.valueOf(view.getTfTargetDanaUpdate());
+                String deskripsi = view.getTfDescriptionUpdate();
+                String namaPenerima = view.getTfNamaPenerimaUpdate();
+                String alamat = view.getTfAlamatPenerimaUpdate();
+                String telpPenerima = view.getTfTelpPenerimaUpdate();
+                boolean penerima = false;
+                if(view.getRbLembagaUpdate().isSelected()) {
+                    penerima = true;
+                }
+                
+                boolean valid = true;
+                if (!model.isNumeric(telpPenerima)) {
+                    valid = false;
+                    JOptionPane.showMessageDialog(view.getPRegistrasi(), "Number Not Valid");
+                }
+                if(valid) {
+                    
+                    EventGalangDana egd = ((PengalangDana) currentUser).getEvent(view.getSelectedEventPD());
+                    egd.updateGalangDana(namaEvent, tanggalMulai, tanggalSelesai, targetDana, deskripsi, namaPenerima, alamat, telpPenerima);
+                    view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+                    view.setListEventPD(model.getListEventId((PengalangDana) currentUser));
+                    model.insertingValidOnes();
+                }
+            } catch (ParseException ex) {
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Wrong Date Format");
+            }
             
-            //balik
-            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+            
         }
         else if(source == view.getBtnBatalDonasi()){
             view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());

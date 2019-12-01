@@ -125,7 +125,8 @@ public class Application {
             return "";
         }
         return "ID = "+l.get(i).getSid()+"\n"
-               +"Nama Event = "+l.get(i).getNama()+"\n";
+               +"Nama Event = "+l.get(i).getNama()+"\n"
+               +"Target Dana = "+l.get(i).getTargetDana()+"\n";
     }
     
     public void insertDonationOfEvent(Donatur donatur ,double nominal, String sid){
@@ -163,6 +164,7 @@ public class Application {
         }
         insertingValidOnes();
     }
+    
     
     public String[] getListEventId(PengalangDana pd) {
         List<EventGalangDana> l = pd.getListEvent();
