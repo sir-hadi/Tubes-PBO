@@ -1433,7 +1433,7 @@ public class GUI extends javax.swing.JFrame {
         return tfNewNoTelp.getText();
     }
     
-    public String getTfNominal() {
+    public String getTfNominalPertama() {
         return tfNominalPertama.getText();
     }
     
@@ -1591,6 +1591,8 @@ public class GUI extends javax.swing.JFrame {
     public void setTfTelpPenerimaUpdate(String s) {
         tfTelpPenerimaUpdate.setText(s);
     }
+    
+    
     
     //Password Field
     public JPasswordField getPfPassword() {

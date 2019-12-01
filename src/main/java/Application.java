@@ -128,6 +128,42 @@ public class Application {
                +"Nama Event = "+l.get(i).getNama()+"\n";
     }
     
+    public void insertDonationOfEvent(Donatur donatur ,double nominal, String sid){
+        for(PengalangDana pg : daftarPengalangDana){
+            for(EventGalangDana egd : pg.getListEvent()){
+                if(egd.getSid().equals(sid)){
+                    egd.createDonasi(donatur, nominal);
+                    break;
+                }
+            }
+        }
+        insertingValidOnes();//biar data divalid ke di update
+    }
+    
+    public void updateDonationOfEvent(Donatur donatur ,double nominal, String sid){
+        for(PengalangDana pg : daftarPengalangDana){
+            for(EventGalangDana egd : pg.getListEvent()){
+                if(egd.getSid().equals(sid)){
+                    egd.updateDonasi(donatur, nominal);
+                    break;
+                }
+            }
+        }
+        insertingValidOnes();
+    }
+    
+    public void deleteDonatioOfEvent(Donatur donatur,String sid){
+        for(PengalangDana pg : daftarPengalangDana){
+            for(EventGalangDana egd : pg.getListEvent()){
+                if(egd.getSid().equals(sid)){
+                    egd.deleteDonasi(donatur);
+                    break;
+                }
+            }
+        }
+        insertingValidOnes();
+    }
+    
     public String[] getListEventId(PengalangDana pd) {
         List<EventGalangDana> l = pd.getListEvent();
         String[] s = new String[l.size()];

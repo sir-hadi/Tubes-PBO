@@ -35,8 +35,35 @@ public class EventGalangDana {
     }
     
     public void createDonasi(Donatur donatur, double nominal) {
-        Donasi d = new Donasi(donatur, 0);
+        Donasi d = new Donasi(donatur, nominal);
         listDonasi.add(d);
+    }
+    
+    public void updateDonasi(Donatur donatur, double nominal){
+        for(Donasi d : listDonasi){
+            if(d.getDonatur().equals(donatur)){
+                d.setNominal(nominal);
+                break;
+            }
+        }
+    }
+    
+    public void deleteDonasi(Donatur donatur){
+        for(Donasi d : listDonasi){
+            if(d.getDonatur().equals(donatur)){
+                listDonasi.remove(d);
+                break;
+            }
+        }
+    }
+    
+    public double getNominalDonasiByDonatur(Donatur donatur){
+        for(Donasi d : listDonasi){
+            if(d.getDonatur().equals(donatur)){
+                return d.getNominal();
+            }
+        }
+        return 0;
     }
     
     public void createPenerimaPersonal(String nama, String alamat, String noTelp){

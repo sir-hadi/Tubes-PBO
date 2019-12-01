@@ -41,8 +41,12 @@ public class Controller extends MouseAdapter implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if(source == view.getBtnBatalDonasi()) {
+        if(source == view.getBtnBatalDonasi()) {            
+            int index = view.getSelectedIndexEventDNT();
+            String sid = model.getEventValidByIndex(index).getSid();
+            model.deleteDonatioOfEvent((Donatur) currentUser,sid);
             view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());
+            refreshTaDeskDNT();
         } 
         else if(source == view.getBtnCancelRegis()) {
             view.switcPanel(view.getjLayeredMain(), view.getPLogin());
@@ -72,6 +76,13 @@ public class Controller extends MouseAdapter implements ActionListener{
             view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
         }
         else if(source == view.getBtnKirimDonasi()) {
+            String nominalString =  view.getTfNominalPertama();
+            double nominal = Double.parseDouble(nominalString);
+            
+            int index = view.getSelectedIndexEventDNT();
+            String sid = model.getEventValidByIndex(index).getSid();
+            model.insertDonationOfEvent((Donatur) currentUser, nominal, sid);
+            refreshTaDeskDNT();
             view.switcPanel(view.getPPilihanDonatur(), view.getPIdlePilihanDonasi());
         }
         else if(source == view.getBtnLogOutAdmin()) {
@@ -177,6 +188,14 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
         else if(source == view.getBtnUpdateDonasi()) {
             //sistem kerja
+            String nominalString =  view.getTfIdleNominal();
+            double nominal = Double.parseDouble(nominalString);
+            
+            int index = view.getSelectedIndexEventDNT();
+            String sid = model.getEventValidByIndex(index).getSid();
+            model.updateDonationOfEvent((Donatur) currentUser, nominal, sid);
+            model.insertingValidOnes();
+            refreshTaDeskDNT();
         }
         else if(source == view.getBtnKembali()){
             view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());
@@ -217,7 +236,7 @@ public class Controller extends MouseAdapter implements ActionListener{
                     //balik
                     view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
                     view.setListEventPD(model.getListEventId((PengalangDana) currentUser));
-                    model.insertingValidOnes();
+                    model.insertingValidOnes();// masukin ulang event event yang valid biar donatur bisa liat
                 }
             } catch (ParseException ex) {
                 JOptionPane.showMessageDialog(view.getPRegistrasi(), "Wrong Date Format");
@@ -247,8 +266,7 @@ public class Controller extends MouseAdapter implements ActionListener{
             
         }
         else if(source == view.getListEventDNT()) {
-            int index = view.getSelectedIndexEventDNT();
-            view.setTaDeskripsiDNTText(model.getEventValidByIndex(index).getDescription());
+            refreshTaDeskDNT();
         }
         else if(source == view.getListEventPD()) {
             String id = view.getSelectedEventPD();
@@ -260,5 +278,18 @@ public class Controller extends MouseAdapter implements ActionListener{
         else if(source == view.getListPenerimaAdmin()) {
             
         }
+    }
+    
+    public void refreshTaDeskDNT(){
+        int index = view.getSelectedIndexEventDNT();
+            String msg = model.getEventValidByIndex(index).getDescription();
+            if (model.getEventValidByIndex(index).getNominalDonasiByDonatur((Donatur) currentUser) == 0) {
+                view.setTaDeskripsiDNTText(msg);
+                view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());// biar panel donasi ke refresh kalo dia belum donasi
+            } else {
+                msg += "\n====================================================="
+                        + "\n Your dantion to this Event is " + model.getEventValidByIndex(index).getNominalDonasiByDonatur((Donatur) currentUser);
+                view.setTaDeskripsiDNTText(msg);
+            }
     }
 }
