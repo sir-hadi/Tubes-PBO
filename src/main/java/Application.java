@@ -256,11 +256,11 @@ public class Application {
                 penerimaIdList.add(egd.getPenerima().getSid());
             }
         }
-        String[] penerimaId = (String[]) penerimaIdList.toArray();
-//        String[] penerimaId = new String[penerimaIdList.size()];
-//        for (int i = 0; i < penerimaIdList.size(); i++) {
-//           penerimaId[i] = penerimaIdList.get(i);
-//        }
+        //String[] penerimaId = (String[]) penerimaIdList.toArray();
+        String[] penerimaId = new String[penerimaIdList.size()];
+        for (int i = 0; i < penerimaIdList.size(); i++) {
+           penerimaId[i] = penerimaIdList.get(i);
+        }
         return penerimaId;
     }
     
@@ -302,6 +302,16 @@ public class Application {
             }
         }
         return null;
+    }
+    
+    public void VarifiedEvent(EventGalangDana e,boolean b){
+        for(PengalangDana pg : daftarPengalangDana){
+            for(EventGalangDana egd : pg.getListEvent()){
+                if(egd.equals(e)){
+                    egd.setVerified(b);
+                }
+            }
+        }
     }
     
 

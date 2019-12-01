@@ -132,15 +132,12 @@ public class Controller extends MouseAdapter implements ActionListener{
             UserInfo ui;
             
             if(view.getTfUsername().equals("admin") && String.valueOf(view.getPfPassword().getPassword()).equals("admin") ){
-                try {
+                
                     view.setListDntInAdmin(model.ListDNTForAdmin());
                     view.setListEventAdmin(model.ListEventForAdmin());
                     view.setListPdInAdmin(model.ListPdForAdmin());
                     view.setListPenerimaInAdmin(model.ListPenerimaForAdmin());
-                    view.getjLayeredMain().add(view.getPAdmin());
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
+                    view.switcPanel(view.getjLayeredMain(), view.getPAdmin());
 
             }
             
