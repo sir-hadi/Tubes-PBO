@@ -207,6 +207,62 @@ public class Application {
         }
     }
     
+    public String[] ListEventForAdmin(){
+        ArrayList<String> eventIdList = new ArrayList<String>();
+        
+        for(PengalangDana pg : daftarPengalangDana){
+            for(EventGalangDana egd : pg.getListEvent()){
+                eventIdList.add(egd.getSid());
+            }
+        }
+        String[] eventId = new String[eventIdList.size()];
+        for (int i = 0; i < eventIdList.size(); i++) {
+            eventId[i] = eventIdList.get(i);
+        }
+        return eventId;
+    }
+    
+    public String[] ListDNTForAdmin(){
+        ArrayList<String> dntIdList = new ArrayList<String>();
+        
+        for(Donatur d : daftarDonatur){
+            dntIdList.add(d.getSid());
+        }
+        String[] dntId = new String[dntIdList.size()];
+        for (int i = 0; i < dntIdList.size(); i++) {
+           dntId[i] = dntIdList.get(i);
+        }
+        return dntId;
+    }
+    
+    public String[] ListPdForAdmin(){
+        ArrayList<String> pdIdList = new ArrayList<String>();
+        
+        for(PengalangDana pd : daftarPengalangDana){
+            pdIdList.add(pd.getSid());
+        }
+        String[] pdId = new String[pdIdList.size()];
+        for (int i = 0; i < pdIdList.size(); i++) {
+           pdId[i] = pdIdList.get(i);
+        }
+        return pdId;
+    }
+    
+    public String[] ListPenerimaForAdmin(){
+        ArrayList<String> penerimaIdList = new ArrayList<String>();
+        
+        for(PengalangDana pd : daftarPengalangDana){
+            for(EventGalangDana egd : pd.getListEvent()){
+                penerimaIdList.add(egd.getPenerima().getSid());
+            }
+        }
+        String[] penerimaId = (String[]) penerimaIdList.toArray();
+        String[] pdId = new String[pdIdList.size()];
+        for (int i = 0; i < pdIdList.size(); i++) {
+           pdId[i] = pdIdList.get(i);
+        }
+        return penerimaId;
+    }
     
 
 }

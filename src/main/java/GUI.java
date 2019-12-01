@@ -69,7 +69,7 @@ public class GUI extends javax.swing.JFrame {
         pMain = new javax.swing.JPanel();
         pUserinfo = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblCurrentUsername = new javax.swing.JLabel();
         btnEditProfile = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         pUserMain = new javax.swing.JPanel();
@@ -362,7 +362,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel8.setText("Hello ,");
 
-        jLabel9.setText("Username");
+        lblCurrentUsername.setText("Username");
 
         btnEditProfile.setText("Edit Profile");
 
@@ -376,7 +376,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
+                .addComponent(lblCurrentUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 325, Short.MAX_VALUE)
                 .addComponent(btnEditProfile)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -389,7 +389,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pUserinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9)
+                    .addComponent(lblCurrentUsername)
                     .addComponent(btnEditProfile)
                     .addComponent(btnLogout))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1592,7 +1592,14 @@ public class GUI extends javax.swing.JFrame {
         tfTelpPenerimaUpdate.setText(s);
     }
     
-    
+    public void setTfUsername(String s) {
+        tfUsername.setText(s);
+    }
+
+    //set Label
+    public void setLblCurrentUsername(String s) {
+        lblCurrentUsername.setText(s);
+    }
     
     //Password Field
     public JPasswordField getPfPassword() {
@@ -1606,6 +1613,20 @@ public class GUI extends javax.swing.JFrame {
     public JPasswordField getPfRegisPasswordConfirmation() {
         return pfRegisPasswordConfirmation;
     }
+    
+    //Set Pass Field
+    public void setPfPassword(String s) {
+        pfPassword.setText(s);
+    }
+    
+    public void setPfRegisPassword(String s) {
+        pfRegisPassword.setText(s);
+    }
+    
+    public void setPfRegisPasswordPConfirmation(String s) {
+        pfRegisPasswordConfirmation.setText(s);
+    }
+    
     
     public void addActionListener(ActionListener al) {
         btnBatalDonasi.addActionListener(al);
@@ -1691,6 +1712,24 @@ public class GUI extends javax.swing.JFrame {
     public String getSelectedPenerimaInAdmin() {
         return listPenerimaInAdmin.getSelectedValue();
     }
+
+    public void setListDntInAdmin(String[] s) {
+        this.listDntInAdmin.setListData(s);
+    }
+
+    public void setListEventAdmin(String[] s) {
+        this.listEventAdmin.setListData(s);
+    }
+
+    public void setListPdInAdmin(String[] s) {
+        this.listPdInAdmin.setListData(s);
+    }
+
+    public void setListPenerimaInAdmin(String[] s) {
+        this.listPenerimaInAdmin.setListData(s);
+    }
+    
+    
     
     public void addMouseAdaper(MouseAdapter ma) {
         listDntInAdmin.addMouseListener(ma);
@@ -1896,7 +1935,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredMain;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
@@ -1912,6 +1950,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel lblCurrentUsername;
     private javax.swing.JList<String> listDntInAdmin;
     private javax.swing.JList<String> listEventAdmin;
     private javax.swing.JList<String> listEventDNT;

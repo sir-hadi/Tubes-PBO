@@ -46,5 +46,14 @@ public abstract class Penerima {
     public void setNoTelp(String noTelp) {
         this.noTelp = noTelp;
     }
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+    
     
 }

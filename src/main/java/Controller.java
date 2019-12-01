@@ -36,6 +36,7 @@ public class Controller extends MouseAdapter implements ActionListener{
         view.addMouseAdaper(this);
         view.setVisible(true);
         
+        
     }
 
     @Override
@@ -50,6 +51,8 @@ public class Controller extends MouseAdapter implements ActionListener{
         } 
         else if(source == view.getBtnCancelRegis()) {
             view.switcPanel(view.getjLayeredMain(), view.getPLogin());
+            view.setTfUsername("");
+            view.setPfPassword("");
         }
         else if(source == view.getBtnDeleteEvent()) {
             if(view.getSelectedEventPD()!=null) {
@@ -57,6 +60,7 @@ public class Controller extends MouseAdapter implements ActionListener{
                 if(yes==0) {
                     ((PengalangDana) currentUser).deleteEvent(view.getSelectedEventPD());
                     view.setListEventPD(model.getListEventId((PengalangDana) currentUser));
+                    view.setTaDeskripsiPDText("");
                 }
             } else {
                 JOptionPane.showMessageDialog(view.getPRegistrasi(), "No Event Selected");
@@ -64,24 +68,48 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
         else if(source == view.getBtnEditProfile()) {
             view.switcPanel(view.getPUserMain(), view.getPEditUser());
+            view.setTfNewName(currentUser.getNama());
+            view.setTfNewEmail(currentUser.getEmail());
+            view.setTfNewNoTelp(currentUser.getNoTelp());
         }
         else if(source == view.getBtnCancelEditProf()){
-            //if donatur           
-            //view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
-            
-            //if PG            
-            view.switcPanel(view.getPUserMain(), view.getPMainGalangDana());
-            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+            if (currentUser instanceof PengalangDana) {
+                view.switcPanel(view.getPUserMain(), view.getPMainGalangDana());
+                view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+            }
+            if (currentUser instanceof Donatur) {
+                view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+            }
         }
         else if(source == view.getBtnDoneEditProf()){
-            //sistem kerja update
+            String nama = view.getTfNewName();
+            String email = view.getTfNewEmail();
+            String noTelp = view.getTfNewNoTelp();
             
-            //if donatur           
-            //view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+            boolean valid = true;
             
-            //if PG
-            view.switcPanel(view.getPUserMain(), view.getPMainGalangDana());
-            view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+            if (!model.isEmailValid(email)) {
+                valid = false;
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Email Is Not Valid");
+            }
+            if (!model.isNumeric(noTelp)) {
+                valid = false;
+                JOptionPane.showMessageDialog(view.getPRegistrasi(), "Number Not Valid");
+            }
+            
+            if (valid) {
+                currentUser.setNama(nama);
+                currentUser.setEmail(email);
+                currentUser.setNoTelp(noTelp);
+                view.setLblCurrentUsername(currentUser.getNama());
+                if (currentUser instanceof PengalangDana) {
+                    view.switcPanel(view.getPUserMain(), view.getPMainGalangDana());
+                    view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
+                }
+                if (currentUser instanceof Donatur) {
+                    view.switcPanel(view.getPUserMain(), view.getPMainDonatur());
+                }
+            }
         }
         else if(source == view.getBtnKirimDonasi()) {
             String nominalString =  view.getTfNominalPertama();
@@ -95,23 +123,33 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
         else if(source == view.getBtnLogOutAdmin()) {
             view.switcPanel(view.getjLayeredMain(), view.getPLogin());
+            view.setTfUsername("");
+            view.setPfPassword("");
+            currentUser = null;
         }
         else if(source == view.getBtnLogin()) {
             UserInfo ui;
+            
+            if(view.getTfUsername().equals("admin") && String.valueOf(view.getPfPassword().getPassword()).equals("admin") ){
+                view.setListDntInAdmin(model.ListDNTForAdmin());
+                view.setListEventAdmin(model.ListEventForAdmin());
+                view.setListPdInAdmin(model.ListPdForAdmin());
+                view.setListPenerimaInAdmin(model.ListPenerimaForAdmin());
+                view.getjLayeredMain().add(view.getPAdmin());
+            }
+            
+            
             ui = model.getDonatur(view.getTfUsername());
             if (ui==null) { //Donatur Not Found
                 ui = model.getPengalangDana(view.getTfUsername());
-                System.out.println("b");
-            } else {
-                System.out.println("a");
             }
             if (ui!=null) { //Any Found
                 if(ui.getPassword().equals(String.valueOf(view.getPfPassword().getPassword()))) { //Check Pass
                     currentUser = ui;
+                    view.setLblCurrentUsername(currentUser.getNama());
                     view.getjLayeredMain().removeAll();
                     
-                    //if admin
-                    //view.getjLayeredMain().add(view.getPAdmin());
+                    
             
                     if(currentUser instanceof Donatur) {
                         view.getjLayeredMain().add(view.getPMain());
@@ -132,18 +170,20 @@ public class Controller extends MouseAdapter implements ActionListener{
                     view.getjLayeredMain().repaint();
                     view.getjLayeredMain().revalidate();
                 } else {
-                    System.out.println("Nope");
                     JOptionPane.showMessageDialog(view.getPRegistrasi(), "Username or Password are invalid");
+                    view.setPfPassword("");
                 }
             } else {
-                System.out.println("c");
                 JOptionPane.showMessageDialog(view.getPRegistrasi(), "Username or Password are invalid");
+                view.setPfPassword("");
             }
             
         }
         else if(source == view.getBtnLogout()) {
             currentUser = null;
             view.switcPanel(view.getjLayeredMain(), view.getPLogin());
+            view.setTfUsername("");
+            view.setPfPassword("");
         }
         else if(source == view.getBtnMauDonasi()) {
             view.switcPanel(view.getPPilihanDonatur(), view.getPDonasiPertama());
@@ -193,6 +233,13 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
         else if(source == view.getBtnRegister()) {
             view.switcPanel(view.getjLayeredMain(), view.getPRegistrasi());
+            view.setTfRegisUsername("");
+            view.setTfRegisName("");
+            view.setTfRegisTelp("");
+            view.setTfRegisEmail("");
+            view.setPfRegisPassword("");
+            view.setPfRegisPasswordPConfirmation("");
+            view.getRbRegisDonatur().setSelected(true);
         }
         else if(source == view.getBtnUpdateDonasi()) {
             //sistem kerja
@@ -232,6 +279,14 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
         else if(source == view.getBtnAddEvent()){
             view.switcPanel(view.getPMainGalangDana(), view.getPEventCreate());
+            view.setTfAlamatPenerimaCreate("");
+            view.setTfNamaEventCreate("");
+            view.setTfNamaPenerimaCreate("");
+            view.setTfTanggalMulaiCreate("");
+            view.setTfTanggalSelesaiCreate("");
+            view.setTfTargetDanaCreate("");
+            view.setTfDescriptionCreate("");
+            view.getRbPersonal().setSelected(true);
         }
         else if(source == view.getBtnCancelCreateEvent()){
             view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
@@ -263,6 +318,8 @@ public class Controller extends MouseAdapter implements ActionListener{
                     //balik
                     view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
                     view.setListEventPD(model.getListEventId((PengalangDana) currentUser));
+                    view.setTfUsername("");
+                    view.setPfPassword("");
                     model.insertingValidOnes();// masukin ulang event event yang valid biar donatur bisa liat
                 }
             } catch (ParseException ex) {
@@ -299,6 +356,8 @@ public class Controller extends MouseAdapter implements ActionListener{
                     egd.updateGalangDana(namaEvent, tanggalMulai, tanggalSelesai, targetDana, deskripsi, namaPenerima, alamat, telpPenerima);
                     view.switcPanel(view.getPMainGalangDana(), view.getPMainPenggalangDana());
                     view.setListEventPD(model.getListEventId((PengalangDana) currentUser));
+                    String id = view.getSelectedEventPD();
+                    view.setTaDeskripsiPDText(model.searchEvent((PengalangDana) currentUser,id));
                     model.insertingValidOnes();
                 }
             } catch (ParseException ex) {
@@ -316,7 +375,7 @@ public class Controller extends MouseAdapter implements ActionListener{
     public void mousePressed(MouseEvent me) {
         Object source = me.getSource();
         if(source == view.getListDntInAdmin()) {
-            
+            //model.getL
         }
         else if(source == view.getListEventAdmin()) {
             
