@@ -400,7 +400,7 @@ public class Controller extends MouseAdapter implements ActionListener{
             "Nama : "+currentDNT.getNama()+
             "\nUsername : "+currentDNT.getUsername()+
             "\nEmail : "+currentDNT.getEmail()+
-            "\nNomer Telp"+currentDNT.getNoTelp()
+            "\nNomer Telp : "+currentDNT.getNoTelp()
             );
         }
         else if(source == view.getListEventAdmin()) {
@@ -420,7 +420,7 @@ public class Controller extends MouseAdapter implements ActionListener{
             "Nama : "+currentPD.getNama()+
             "\nUsername : "+currentPD.getUsername()+
             "\nEmail : "+currentPD.getEmail()+
-            "\nNomor Telp"+currentPD.getNoTelp()
+            "\nNomor Telp : "+currentPD.getNoTelp()
             );
         }
         else if(source == view.getListPenerimaAdmin()) {
@@ -434,9 +434,9 @@ public class Controller extends MouseAdapter implements ActionListener{
             }
             view.setTaDeskripsiPenerimaInAdminText(
             "Nama Penerima : "+currenPenerima.getNama()+
-            "Jenis Penerima : "+type+
-            "Alamat : "+currenPenerima.getAlamat()+
-            "Nomor Telp : "+currenPenerima.getNoTelp()
+            "\nJenis Penerima : "+type+
+            "\nAlamat : "+currenPenerima.getAlamat()+
+            "\nNomor Telp : "+currenPenerima.getNoTelp()
             );
         }
     }
@@ -459,7 +459,7 @@ public class Controller extends MouseAdapter implements ActionListener{
         String id = view.getSelectedEventAdmin();
         EventGalangDana currentEGD = model.searchEventById(id);            
         if (currentEGD.isVerified()) {
-            view.getRbVarifTrue().isSelected();
+            view.getRbVarifTrue().setSelected(true);
         } else {
             view.getRbVarifFalse().isSelected();
         }
