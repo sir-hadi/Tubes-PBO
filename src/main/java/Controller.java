@@ -290,6 +290,7 @@ public class Controller extends MouseAdapter implements ActionListener{
                 msg += "\n====================================================="
                         + "\n Your dantion to this Event is " + model.getEventValidByIndex(index).getNominalDonasiByDonatur((Donatur) currentUser);
                 view.setTaDeskripsiDNTText(msg);
+                view.switcPanel(view.getPPilihanDonatur(), view.getPIdlePilihanDonasi());
             }
     }
 }
