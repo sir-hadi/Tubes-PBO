@@ -371,21 +371,20 @@ public class Controller extends MouseAdapter implements ActionListener{
         }
         else if(source == view.getBtnBatalDonasi()){
             view.switcPanel(view.getPPilihanDonatur(), view.getPBelumDonasi());
-        }else if(source == view.getRbVarifTrue()){
-            if (view.getRbVarifTrue().isSelected()) {
-                if (currentSeletedEgdByAdmin != null) {
+        }
+        else if(source == view.getRbVarifTrue()){
+
                     model.VarifiedEvent(model.searchEventById(view.getSelectedEventAdmin()), true);
                     refreshTaDeskEventOnAdmin();
-                }
-            }
 
-        }else if(source == view.getRbVarifFalse()){
-            if (view.getRbVarifFalse().isSelected()) {
-                if (currentSeletedEgdByAdmin != null) {
+
+
+        }
+        else if(source == view.getRbVarifFalse()){
+
                     model.VarifiedEvent(model.searchEventById(view.getSelectedEventAdmin()), false);
                     refreshTaDeskEventOnAdmin();
-                }
-            }
+
             
         }
     }
@@ -461,12 +460,15 @@ public class Controller extends MouseAdapter implements ActionListener{
         if (currentEGD.isVerified()) {
             view.getRbVarifTrue().setSelected(true);
         } else {
-            view.getRbVarifFalse().isSelected();
+            view.getRbVarifFalse().setSelected(true);
         }
+        int dateMulai = currentEGD.getTglMulai().getDate();
+        int dateSelesai = currentEGD.getTglSelesai().getDate();
+        
         view.setTaDeskriEventAdminText(
         "Nama Event : "+currentEGD.getNama()+
         "\nDeskripsi : "+currentEGD.getDescription()+
-        "\nTanggal : "+currentEGD.getTglMulai()+" - "+currentEGD.getTglSelesai()+
+        "\nTanggal : "+dateMulai+" - "+dateSelesai+
         "\nTarget : "+currentEGD.getTargetDana()+
         "\nPenerima ID : "+currentEGD.getPenerima().getSid()+
         "\nNama Penerima : "+currentEGD.getPenerima().getNama()+

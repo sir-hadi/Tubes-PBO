@@ -1651,6 +1651,8 @@ public class GUI extends javax.swing.JFrame {
         btnDoneUpdateEvent.addActionListener(al);
         btnCancelUpdateEvent.addActionListener(al);        
         btnKembali.addActionListener(al);
+        rbVarifFalse.addActionListener(al);
+        rbVerifTrue.addActionListener(al);
     }
     
     public JList getListDntInAdmin() {
